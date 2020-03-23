@@ -7,9 +7,11 @@ package g53298.humbug.model;
 
 /**
  * This class represents a position to find your way on the board
+ *
  * @author israelmeiresonne
  */
 public class Position {
+
     private final int row;
     private final int column;
 
@@ -42,6 +44,21 @@ public class Position {
         return column;
     }
 
+    /**
+     * Gives the position next to the current position in the direction
+     * indicated by the value passed in parameter
+     *
+     * @param direction one of the four cardinal points (NORTH, SOUTH, EAST,
+     * WEST)
+     * @return the position in the indicated direction
+     */
+    public Position next(Direction direction) {
+        int nextRow = this.row + direction.getDeltaRow();
+        int nextColumn = this.column + direction.getDeltaColumn();
+
+        return new Position(nextRow, nextColumn);
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -70,6 +87,5 @@ public class Position {
         }
         return true;
     }
-    
-    
+
 }
