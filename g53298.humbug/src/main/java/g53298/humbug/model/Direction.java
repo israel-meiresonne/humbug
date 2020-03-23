@@ -7,8 +7,8 @@ package g53298.humbug.model;
 public enum Direction {
     NORTH(-1, 0), SOUTH(1, 0), EAST(0, 1), WEST(0, -1);
 
-    private int deltaRow;
-    private int deltaColumn;
+    private final int deltaRow;
+    private final int deltaColumn;
 
     /**
      * Constructor of a direction

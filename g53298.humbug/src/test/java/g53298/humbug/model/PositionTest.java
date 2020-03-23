@@ -93,10 +93,4 @@ public class PositionTest {
         assertTrue(position1.hashCode() == position1.hashCode());
         assertTrue(position1.hashCode() == position2.hashCode());
     }
-
-   
-    
-    
-    
-    
 }
