@@ -1,6 +1,5 @@
 package g53298.humbug.model;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -15,7 +14,7 @@ public class SquareTest {
     /**
      * Test of getType method, of class Square.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testGetType() {
         System.out.println("getType");
         Square instance = new Square(SquareType.GRASS);
