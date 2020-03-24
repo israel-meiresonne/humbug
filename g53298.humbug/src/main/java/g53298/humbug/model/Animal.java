@@ -59,5 +59,6 @@ public abstract class Animal {
      * the animal can't move in the direction given in param or null if the 
      * animal is fallen of the board
      */
-    public abstract Position move(Board board, Direction direction);
+    public abstract Position move(Board board, Direction direction, 
+            Animal... animals);
 }
