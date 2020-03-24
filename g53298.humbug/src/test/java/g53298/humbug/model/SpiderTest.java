@@ -1,17 +1,13 @@
-package pbt.humbug.model.animals;
+package g53298.humbug.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static pbt.humbug.model.SquareType.GRASS;
-import static pbt.humbug.model.SquareType.STAR;
+import static g53298.humbug.model.SquareType.*;
+//import static pbt.humbug.model.SquareType.STAR;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pbt.humbug.model.Board;
-import pbt.humbug.model.Direction;
-import pbt.humbug.model.Position;
-import pbt.humbug.model.Square;
 //import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -42,6 +38,7 @@ public class SpiderTest {
     @Test
     public void testMove() {
         System.out.println("move and fall");
+        setUp();
         Spider instance = (Spider) animals[0];
         Position expResult = null; // fall
         Position result = instance.move(board, Direction.EAST, animals);
@@ -54,6 +51,7 @@ public class SpiderTest {
     @Test
     public void testMove_endline() {
         System.out.println("move end line and fall");
+        setUp();
         board = new Board(new Square[][]{
             {new Square(GRASS), new Square(GRASS), new Square(GRASS)},
             {null, new Square(GRASS), new Square(GRASS)},
@@ -71,6 +69,7 @@ public class SpiderTest {
     @Test
     public void testMove_tootheranimal() {
         System.out.println("move to other animal");
+        setUp();
         board = new Board(new Square[][]{
             {new Square(GRASS), new Square(GRASS), new Square(GRASS)},
             {null, new Square(GRASS), new Square(GRASS)},
@@ -88,6 +87,7 @@ public class SpiderTest {
     @Test
     public void testMove_next_notfree() {
         System.out.println("move next case not free");
+        setUp();
         Spider instance = (Spider) animals[0];
         animals[1].setPositionOnBoard(new Position(0, 1));
         Position expResult = new Position(0, 0); //don't move
@@ -101,6 +101,7 @@ public class SpiderTest {
     @Test
     public void testMove_next_notinside() {
         System.out.println("move next case null and fall");
+        setUp();
         Spider instance = (Spider) animals[0];
         Position expResult = null; // fall
         Position result = instance.move(board, Direction.SOUTH, animals);
@@ -110,6 +111,7 @@ public class SpiderTest {
     @Test
     public void testMove_passOnStar() {
         System.out.println("move and pass on star without win");
+        setUp();
         board = new Board(new Square[][]{
             {new Square(GRASS), new Square(STAR), new Square(GRASS), new Square(GRASS)},
             {null, new Square(GRASS), new Square(GRASS), null},
@@ -130,6 +132,7 @@ public class SpiderTest {
     @Test
     public void testMove_nextOnStar() {
         System.out.println("move, next on star and win");
+        setUp();
         board = new Board(new Square[][]{
             {new Square(GRASS), new Square(GRASS), new Square(STAR), new Square(GRASS)},
             {null, new Square(GRASS), new Square(GRASS), null},

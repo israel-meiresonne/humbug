@@ -39,13 +39,13 @@ public class Spider extends Animal {
             newPos = currentPos.next(direction);
             boolean isInside = board.isInside(newPos);
             boolean isFree = isFree(newPos, animals);
-            
+
             if (isInside && isFree) {
                 this.setPositionOnBoard(newPos);
                 isArrived = !isFree(newPos.next(direction), animals);
-                if (isArrived) {
+                if (isArrived && board.getSquareType(newPos) == STAR) {
                     board.switchToGrass(newPos);
-                    this.setOnStar(isFree);
+                    this.setOnStar(true);
                 }
             } else if (!isInside) {
                 this.setPositionOnBoard(null);
