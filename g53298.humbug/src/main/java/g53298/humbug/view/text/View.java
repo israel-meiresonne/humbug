@@ -3,8 +3,10 @@ package g53298.humbug.view.text;
 import g53298.humbug.model.Board;
 import g53298.humbug.model.Direction;
 import g53298.humbug.model.Position;
+import g53298.humbug.model.Square;
 import static g53298.humbug.model.SquareType.GRASS;
 import static g53298.humbug.model.SquareType.STAR;
+import static g53298.humbug.model.TerminalColor.*;
 import java.util.Scanner;
 
 /**
@@ -13,16 +15,18 @@ import java.util.Scanner;
  */
 public class View implements InterfaceView {
 
-    private Scanner in;
+    private final Scanner in;
     private final String GRASS_SYMBOL;
     private final String STAR_SYMBOL;
     private final String NULL_SQUARE_SYMBOL;
+    private final String SEPARATOR;
 
     public View() {
-        in = new Scanner(System.in);;
-        GRASS_SYMBOL = "▩";
-        STAR_SYMBOL = "☆";
+        in = new Scanner(System.in);
+        GRASS_SYMBOL = GREEN+"▩";
+        STAR_SYMBOL = YELLOW+"☆";
         NULL_SQUARE_SYMBOL = " ";
+        SEPARATOR = BLACK+"|";
     }
 
     /**
@@ -30,6 +34,7 @@ public class View implements InterfaceView {
      *
      * @param board the board to print
      */
+    @Override
     public void displayBoard(Board board) {
         int nbRow = board.getNbRow();
         int nbCol = board.getNbColumn();
@@ -56,9 +61,9 @@ public class View implements InterfaceView {
         for (int row = 0; row < nbRow; row++) {
             for (int col = 0; col < nbCol; col++) {
                 if (boardStr[row][col] != NULL_SQUARE_SYMBOL) {
-                    System.out.print("|");
+                    System.out.print(SEPARATOR);
                     System.out.print(boardStr[row][col]);
-                    System.out.print("|");
+                    System.out.print(SEPARATOR);
                 } else {
                     System.out.print(NULL_SQUARE_SYMBOL);
                     System.out.print(NULL_SQUARE_SYMBOL);
@@ -75,6 +80,7 @@ public class View implements InterfaceView {
      *
      * @param message a error message to display
      */
+    @Override
     public void displayError(String message) {
         System.out.println(message);
     }
@@ -110,6 +116,7 @@ public class View implements InterfaceView {
      *
      * @return Direction entered by the user
      */
+    @Override
     public Direction askDirection() {
         boolean isCorrect = false;
         Direction dir = null;
@@ -141,19 +148,19 @@ public class View implements InterfaceView {
         return dir;
     }
 
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String[] args) {
-//        Square[][] bd = new Square[][]{
-//            {new Square(GRASS), new Square(GRASS), null},
-//            {null, new Square(GRASS), new Square(GRASS)},
-//            {null, null, new Square(STAR)}
-//        };
-//        Board board = new Board(bd);
-//        View view = new View();
-//        view.displayBoard(board);
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Square[][] bd = new Square[][]{
+            {new Square(GRASS), new Square(GRASS), null},
+            {null, new Square(GRASS), new Square(GRASS)},
+            {null, null, new Square(STAR)}
+        };
+        Board board = new Board(bd);
+        View view = new View();
+        view.displayBoard(board);
 //        view.askDirection();
 //        view.askPosition();
-//    }
+    }
 }
