@@ -18,7 +18,7 @@ public class Board {
      *
      * @param board
      */
-    public Board(Square[][] board) {
+    Board(Square[][] board) {
         this.board = board;
     }
 

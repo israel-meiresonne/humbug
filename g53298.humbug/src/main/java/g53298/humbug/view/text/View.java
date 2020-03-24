@@ -148,19 +148,19 @@ public class View implements InterfaceView {
         return dir;
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Square[][] bd = new Square[][]{
-            {new Square(GRASS), new Square(GRASS), null},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
-        };
-        Board board = new Board(bd);
-        View view = new View();
-        view.displayBoard(board);
-//        view.askDirection();
-//        view.askPosition();
-    }
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String[] args) {
+//        Square[][] bd = new Square[][]{
+//            {new Square(GRASS), new Square(GRASS), null},
+//            {null, new Square(GRASS), new Square(GRASS)},
+//            {null, null, new Square(STAR)}
+//        };
+//        Board board = new Board(bd);
+//        View view = new View();
+//        view.displayBoard(board);
+////        view.askDirection();
+////        view.askPosition();
+//    }
 }
