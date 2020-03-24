@@ -37,7 +37,7 @@
     <property name="os.version" value="10.15.3"/>
     <property name="jpda.listen" value="true"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
-    <property name="jpda.address" value="50801"/>
+    <property name="jpda.address" value="50833"/>
     <property name="user.home" value="/Users/israelmeiresonne"/>
     <property name="user.timezone" value="Europe/Brussels"/>
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
@@ -45,11 +45,11 @@
     <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="israelmeiresonne"/>
     <property name="java.class.path" value="/Applications/NetBeans/Apache NetBeans 11.2.app/Contents/Resources/NetBeans/netbeans/java/maven/boot/plexus-classworlds-2.5.2.jar"/>
-    <property name="maven.surefire.debug" value="-agentlib:jdwp=transport=dt_socket,server=n,address=50801"/>
+    <property name="maven.surefire.debug" value="-agentlib:jdwp=transport=dt_socket,server=n,address=50833"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=g53298.humbug.model.BoardTest -DforkMode=once -Dmaven.surefire.debug=-agentlib:jdwp=transport=dt_socket,server=n,address=50801 -Djpda.listen=true -Djpda.address=50801 -Dmaven.ext.class.path=/Applications/NetBeans/Apache NetBeans 11.2.app/Contents/Resources/NetBeans/netbeans/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=g53298.humbug.model.BoardTest -DforkMode=once -Dmaven.surefire.debug=-agentlib:jdwp=transport=dt_socket,server=n,address=50833 -Djpda.listen=true -Djpda.address=50833 -Dmaven.ext.class.path=/Applications/NetBeans/Apache NetBeans 11.2.app/Contents/Resources/NetBeans/netbeans/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="fr"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -68,12 +68,12 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_general_true" time="0.003"/>
+  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_general_true" time="0.002"/>
   <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_false_null" time="0"/>
   <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_false_outbound_negative" time="0"/>
   <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_false_outbound_positive_row" time="0"/>
   <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_false_outbound_positive_column" time="0"/>
   <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testGetSquareType_exist" time="0"/>
   <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testGetSquareType_exist_star" time="0"/>
-  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testGetSquareType_null" time="0.044"/>
+  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testGetSquareType_null" time="0.045"/>
 </testsuite>
