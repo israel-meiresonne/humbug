@@ -1,0 +1,43 @@
+-------------------------------------------------------------------------------
+Test set: g53298.humbug.model.BoardTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec <<< FAILURE!
+g53298.humbug.model.BoardTest.testIsInside_general_true()  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at g53298.humbug.model.BoardTest.testIsInside_general_true(BoardTest.java:40)
+
+g53298.humbug.model.BoardTest.testIsInside_false_null()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at g53298.humbug.model.BoardTest.testIsInside_false_null(BoardTest.java:52)
+
+g53298.humbug.model.BoardTest.testIsInside_false_outbound_negative()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at g53298.humbug.model.BoardTest.testIsInside_false_outbound_negative(BoardTest.java:64)
+
+g53298.humbug.model.BoardTest.testIsInside_false_outbound_positive_row()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at g53298.humbug.model.BoardTest.testIsInside_false_outbound_positive_row(BoardTest.java:76)
+
+g53298.humbug.model.BoardTest.testIsInside_false_outbound_positive_column()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at g53298.humbug.model.BoardTest.testIsInside_false_outbound_positive_column(BoardTest.java:88)
+
+g53298.humbug.model.BoardTest.testGetSquareType_exist()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at g53298.humbug.model.BoardTest.testGetSquareType_exist(BoardTest.java:96)
+
+g53298.humbug.model.BoardTest.testGetSquareType_exist_star()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at g53298.humbug.model.BoardTest.testGetSquareType_exist_star(BoardTest.java:104)
+
+g53298.humbug.model.BoardTest.testGetSquareType_null()  Time elapsed: 0.066 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:63)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:36)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:1179)
+	at g53298.humbug.model.BoardTest.testGetSquareType_null(BoardTest.java:111)
+Caused by: java.lang.NullPointerException
+	at g53298.humbug.model.BoardTest.lambda$testGetSquareType_null$0(BoardTest.java:112)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:54)
+	... 21 more
+
