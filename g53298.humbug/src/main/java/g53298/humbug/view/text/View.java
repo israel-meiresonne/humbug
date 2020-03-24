@@ -1,8 +1,11 @@
 package g53298.humbug.view.text;
 
+import g53298.humbug.model.Animal;
 import g53298.humbug.model.Board;
 import g53298.humbug.model.Direction;
 import g53298.humbug.model.Position;
+import g53298.humbug.model.Snail;
+import g53298.humbug.model.Spider;
 import g53298.humbug.model.Square;
 import static g53298.humbug.model.SquareType.GRASS;
 import static g53298.humbug.model.SquareType.STAR;
@@ -33,9 +36,10 @@ public class View implements InterfaceView {
      * Print the content of the board
      *
      * @param board the board to print
+     * @param animals animal to display
      */
     @Override
-    public void displayBoard(Board board) {
+    public void displayBoard(Board board, Animal... animals) {
         int nbRow = board.getNbRow();
         int nbCol = board.getNbColumn();
         String[][] boardStr = new String[nbRow][nbCol];
@@ -55,6 +59,13 @@ public class View implements InterfaceView {
                 } else {
                     boardStr[row][col] = NULL_SQUARE_SYMBOL;
                 }
+            }
+        }
+        
+        for(Animal animal : animals){
+            Position pos = animal.getPositionOnBoard();
+            if((pos != null) && (!animal.isOnStar())){
+                boardStr[pos.getRow()][pos.getColumn()] = animal.toString();
             }
         }
 
@@ -158,9 +169,11 @@ public class View implements InterfaceView {
 //            {null, null, new Square(STAR)}
 //        };
 //        Board board = new Board(bd);
+//        Spider sp = new Spider(new Position(0,1));
+//        Snail sn = new Snail(new Position(1,1));
 //        View view = new View();
-//        view.displayBoard(board);
-////        view.askDirection();
-////        view.askPosition();
+//        view.displayBoard(board, sp, sn);
+//        view.askDirection();
+//        view.askPosition();
 //    }
 }

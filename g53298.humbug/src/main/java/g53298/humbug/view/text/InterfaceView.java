@@ -1,5 +1,6 @@
 package g53298.humbug.view.text;
 
+import g53298.humbug.model.Animal;
 import g53298.humbug.model.Board;
 import g53298.humbug.model.Direction;
 import g53298.humbug.model.Position;
@@ -14,8 +15,9 @@ interface InterfaceView {
      * Print the content of the board
      *
      * @param board the board to print
+     * @param animals animal to display
      */
-    public void displayBoard(Board board);
+    public void displayBoard(Board board, Animal... animals);
 
     /**
      * Ask a position to the user, create and return that position

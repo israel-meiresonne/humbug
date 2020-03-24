@@ -1,6 +1,7 @@
 package g53298.humbug.model;
 
 import static g53298.humbug.model.SquareType.*;
+import static g53298.humbug.model.TerminalColor.*;
 
 /**
  *
@@ -64,4 +65,11 @@ public class Snail extends Animal {
         }
         return isFree;
     }
+
+    @Override
+    public String toString() {
+        return BLUE+"◎";
+    }
+    
+    
 }
