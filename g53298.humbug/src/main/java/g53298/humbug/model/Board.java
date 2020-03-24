@@ -85,4 +85,15 @@ public class Board {
     public int getNbColumn(){
         return board[0].length;
     }
+    
+    /**
+     * Switch the type of the square at the position given in param 
+     * from STAR to GRASS
+     * @param position the position of the quare to switch to GRASS
+     */
+    public void switchToGrass(Position position){
+        if(this.getSquareType(position) == STAR){
+            board[position.getRow()][position.getColumn()].setType(GRASS);
+        }
+    }
 }

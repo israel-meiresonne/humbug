@@ -55,6 +55,7 @@ public abstract class Animal {
      * Move the animal one the board in the direction given in param
      * @param board the game board
      * @param direction the direction to move
+     * @param animals animal to move
      * @return -the new position if the animal moved, the initial position 
      * the animal can't move in the direction given in param or null if the 
      * animal is fallen of the board

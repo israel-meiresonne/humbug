@@ -26,4 +26,12 @@ public class Square {
     public SquareType getType() {
         return type;
     }
+
+    /**
+     * Setter of the type
+     * @param type 
+     */
+    void setType(SquareType type) {
+        this.type = type;
+    }
 }
