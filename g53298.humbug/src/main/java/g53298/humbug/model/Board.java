@@ -50,7 +50,8 @@ public class Board {
         }
         return (pos.getRow() < getNbRow())
                 && (pos.getColumn() < getNbColumn())
-                && (pos.getRow() >= 0) && (pos.getColumn() >= 0);
+                && (pos.getRow() >= 0) && (pos.getColumn() >= 0)
+                && board[pos.getRow()][pos.getColumn()] != null;
     }
 
     /**

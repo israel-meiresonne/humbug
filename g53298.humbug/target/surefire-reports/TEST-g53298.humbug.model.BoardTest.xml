@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="8" name="g53298.humbug.model.BoardTest" time="0.07" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="g53298.humbug.model.BoardTest" time="0.047" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib"/>
@@ -35,7 +35,9 @@
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.15.3"/>
+    <property name="jpda.listen" value="true"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jpda.address" value="50801"/>
     <property name="user.home" value="/Users/israelmeiresonne"/>
     <property name="user.timezone" value="Europe/Brussels"/>
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
@@ -43,10 +45,11 @@
     <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="israelmeiresonne"/>
     <property name="java.class.path" value="/Applications/NetBeans/Apache NetBeans 11.2.app/Contents/Resources/NetBeans/netbeans/java/maven/boot/plexus-classworlds-2.5.2.jar"/>
+    <property name="maven.surefire.debug" value="-agentlib:jdwp=transport=dt_socket,server=n,address=50801"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=g53298.humbug.model.BoardTest -Dmaven.ext.class.path=/Applications/NetBeans/Apache NetBeans 11.2.app/Contents/Resources/NetBeans/netbeans/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=g53298.humbug.model.BoardTest -DforkMode=once -Dmaven.surefire.debug=-agentlib:jdwp=transport=dt_socket,server=n,address=50801 -Djpda.listen=true -Djpda.address=50801 -Dmaven.ext.class.path=/Applications/NetBeans/Apache NetBeans 11.2.app/Contents/Resources/NetBeans/netbeans/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="fr"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -58,73 +61,19 @@
     <property name="maven.home" value="/Applications/NetBeans/Apache NetBeans 11.2.app/Contents/Resources/NetBeans/netbeans/java/maven"/>
     <property name="file.separator" value="/"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="forkMode" value="once"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_general_true" time="0.003">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at g53298.humbug.model.BoardTest.testIsInside_general_true(BoardTest.java:40)
-</failure>
-    <system-out>isInside general
-</system-out>
-  </testcase>
-  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_false_null" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at g53298.humbug.model.BoardTest.testIsInside_false_null(BoardTest.java:52)
-</failure>
-    <system-out>isInside false null
-</system-out>
-  </testcase>
-  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_false_outbound_negative" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at g53298.humbug.model.BoardTest.testIsInside_false_outbound_negative(BoardTest.java:64)
-</failure>
-    <system-out>isInside false out of bound
-</system-out>
-  </testcase>
-  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_false_outbound_positive_row" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at g53298.humbug.model.BoardTest.testIsInside_false_outbound_positive_row(BoardTest.java:76)
-</failure>
-    <system-out>isInside false out of bound
-</system-out>
-  </testcase>
-  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_false_outbound_positive_column" time="0.001">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at g53298.humbug.model.BoardTest.testIsInside_false_outbound_positive_column(BoardTest.java:88)
-</failure>
-    <system-out>isInside false out of bound
-</system-out>
-  </testcase>
-  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testGetSquareType_exist" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at g53298.humbug.model.BoardTest.testGetSquareType_exist(BoardTest.java:96)
-</failure>
-    <system-out>get square type exist
-</system-out>
-  </testcase>
-  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testGetSquareType_exist_star" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at g53298.humbug.model.BoardTest.testGetSquareType_exist_star(BoardTest.java:104)
-</failure>
-    <system-out>get square type exist
-</system-out>
-  </testcase>
-  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testGetSquareType_null" time="0.066">
-    <failure message="Unexpected exception type thrown ==&gt; expected: &lt;java.lang.IllegalArgumentException&gt; but was: &lt;java.lang.NullPointerException&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==&gt; expected: &lt;java.lang.IllegalArgumentException&gt; but was: &lt;java.lang.NullPointerException&gt;
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:63)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:36)
-	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:1179)
-	at g53298.humbug.model.BoardTest.testGetSquareType_null(BoardTest.java:111)
-Caused by: java.lang.NullPointerException
-	at g53298.humbug.model.BoardTest.lambda$testGetSquareType_null$0(BoardTest.java:112)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:54)
-	... 21 more
-</failure>
-    <system-out>get case type illegal argument
-</system-out>
-  </testcase>
+  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_general_true" time="0.003"/>
+  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_false_null" time="0"/>
+  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_false_outbound_negative" time="0"/>
+  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_false_outbound_positive_row" time="0"/>
+  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testIsInside_false_outbound_positive_column" time="0"/>
+  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testGetSquareType_exist" time="0"/>
+  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testGetSquareType_exist_star" time="0"/>
+  <testcase classname="g53298.humbug.model.BoardTest" name="g53298.humbug.model.BoardTest.testGetSquareType_null" time="0.044"/>
 </testsuite>
