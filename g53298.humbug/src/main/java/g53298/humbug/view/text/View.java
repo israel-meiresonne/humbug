@@ -3,7 +3,6 @@ package g53298.humbug.view.text;
 import g53298.humbug.model.Board;
 import g53298.humbug.model.Direction;
 import g53298.humbug.model.Position;
-import g53298.humbug.model.Square;
 import static g53298.humbug.model.SquareType.GRASS;
 import static g53298.humbug.model.SquareType.STAR;
 import java.util.Scanner;
@@ -12,7 +11,7 @@ import java.util.Scanner;
  *
  * @author israelmeiresonne
  */
-public class View {
+public class View implements InterfaceView {
 
     private Scanner in;
     private final String GRASS_SYMBOL;
