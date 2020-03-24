@@ -25,8 +25,10 @@ public abstract class Animal {
      * @param positionOnBoard
      */
     public void setPositionOnBoard(Position positionOnBoard) {
-        this.positionOnBoard = new Position(positionOnBoard.getRow(),
-                positionOnBoard.getColumn());
+        this.positionOnBoard = positionOnBoard != null 
+                ? new Position(positionOnBoard.getRow(), 
+                        positionOnBoard.getColumn())
+                : null;
     }
 
     /**
