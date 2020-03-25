@@ -60,6 +60,13 @@ public class Game {
      * @param direction the direction where to move the animal
      */
     void move(Position position, Direction direction){
+        if(animals == null){
+            throw new IllegalStateException("There are no animals in this"
+                    + " level!");
+        }
+        if(board == null){
+            throw new IllegalStateException("The board is empty!");
+        }
         boolean found = false;
         int nbAnim = animals.length;
         int i = 0;
