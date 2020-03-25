@@ -9,7 +9,7 @@ import g53298.humbug.model.Position;
  *
  * @author israelmeiresonne
  */
-interface InterfaceView {
+public interface InterfaceView {
 
     /**
      * Print the content of the board

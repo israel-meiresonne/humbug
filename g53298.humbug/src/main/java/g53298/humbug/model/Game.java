@@ -4,7 +4,7 @@ package g53298.humbug.model;
  *
  * @author israelmeiresonne
  */
-public class Game {
+public class Game implements Model{
     private Board board;
     private Animal[] animals;
     
@@ -12,7 +12,7 @@ public class Game {
      * Getter for the board
      * @return original the board
      */
-    Board getBoard(){
+    public Board getBoard(){
         return board;
     }
 
@@ -20,7 +20,7 @@ public class Game {
      * Getter for animals
      * @return original animals
      */
-    Animal[] getAnimals(){
+    public Animal[] getAnimals(){
         return animals;
     }
 
@@ -28,7 +28,8 @@ public class Game {
      * This method initialize the board with the first level
      * @param level 
      */
-    void startLevel(int level){
+    public void startLevel(int level){
+        animals = new Animal[1];
         animals[0] = new Snail(new Position(0,0));
         board = Board.getInitialBoard();
     }
@@ -37,7 +38,7 @@ public class Game {
      * Check if the level is end by checking if all animal is on a star square
      * @return true if the level is end else false
      */
-    boolean levelIsOver(){
+    public boolean levelIsOver(){
         if(animals == null){
             throw new IllegalStateException("There are no animals in this"
                     + " level!");
@@ -59,7 +60,7 @@ public class Game {
      * @param position the supposed position of a animal
      * @param direction the direction where to move the animal
      */
-    void move(Position position, Direction direction){
+    public void move(Position position, Direction direction){
         if(animals == null){
             throw new IllegalStateException("There are no animals in this"
                     + " level!");
