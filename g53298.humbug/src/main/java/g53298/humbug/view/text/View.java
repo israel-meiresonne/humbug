@@ -4,9 +4,6 @@ import g53298.humbug.model.Animal;
 import g53298.humbug.model.Board;
 import g53298.humbug.model.Direction;
 import g53298.humbug.model.Position;
-import g53298.humbug.model.Snail;
-import g53298.humbug.model.Spider;
-import g53298.humbug.model.Square;
 import static g53298.humbug.model.SquareType.GRASS;
 import static g53298.humbug.model.SquareType.STAR;
 import static g53298.humbug.model.TerminalColor.*;
@@ -105,7 +102,7 @@ public class View implements InterfaceView {
         boolean isCorrect = false;
         Position pos = null;
         while (!isCorrect) {
-            System.out.println("Entrer une position: <ligne> <colonne");
+            System.out.println("Entrer une position: <ligne> <colonne>");
             String cmd = in.nextLine();
             String[] cmdList = cmd.split(" ");
             if (cmdList.length == 2

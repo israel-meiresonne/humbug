@@ -47,7 +47,8 @@ public class Game implements Model{
         int nbAnimal = animals.length;
         int i = 0;
         while(isOver && (i < nbAnimal)){
-            isOver = animals[i].isOnStar();
+            isOver = animals[i].isOnStar() 
+                        || animals[i].getPositionOnBoard() == null;
             i++;
         }
         return isOver;

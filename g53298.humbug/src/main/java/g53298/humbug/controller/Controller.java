@@ -26,6 +26,6 @@ public class Controller {
             isOver = game.levelIsOver();
         }
         view.displayBoard(game.getBoard(), game.getAnimals());
-        System.out.println("Vous avez réussi le niveau!");
+        System.out.println("La partie est terminée!");
     }
 }
