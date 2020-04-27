@@ -1,7 +1,7 @@
 package g53298.humbug.model;
 
 /**
- *
+ * Direction lists the directions in which the animals will move
  * @author israelmeiresonne
  */
 public enum Direction {
@@ -16,7 +16,7 @@ public enum Direction {
      * @param deltaRow the variation of the row of the direction
      * @param deltaColumn the variation of the column of the direction
      */
-    Direction(int deltaRow, int deltaColumn) {
+    private Direction(int deltaRow, int deltaColumn) {
         this.deltaRow = deltaRow;
         this.deltaColumn = deltaColumn;
     }
