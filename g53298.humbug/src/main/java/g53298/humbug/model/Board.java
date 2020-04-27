@@ -11,7 +11,7 @@ import static g53298.humbug.model.SquareType.STAR;
  */
 public class Board {
 
-    private Square[][] board;
+    private final Square[][] board;
 
     /**
      * Constructor of the Board
@@ -50,7 +50,8 @@ public class Board {
         }
         return (pos.getRow() < getNbRow())
                 && (pos.getColumn() < getNbColumn())
-                && (pos.getRow() >= 0) && (pos.getColumn() >= 0)
+                && (pos.getRow() >= 0) 
+                && (pos.getColumn() >= 0)
                 && board[pos.getRow()][pos.getColumn()] != null;
     }
 
@@ -92,7 +93,7 @@ public class Board {
      * @param position the position of the quare to switch to GRASS
      */
     public void switchToGrass(Position position){
-        if(this.getSquareType(position) == STAR){
+        if((isInside(position)) && (this.getSquareType(position) == STAR)){
             board[position.getRow()][position.getColumn()].setType(GRASS);
         }
     }
