@@ -16,7 +16,7 @@ public class Board {
     /**
      * Constructor of the Board
      *
-     * @param board
+     * @param board two-dimensional array composed of Square
      */
     Board(Square[][] board) {
         this.board = board;
