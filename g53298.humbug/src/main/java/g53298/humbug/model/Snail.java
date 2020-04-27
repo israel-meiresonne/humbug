@@ -1,7 +1,7 @@
 package g53298.humbug.model;
 
 import static g53298.humbug.model.SquareType.*;
-import static g53298.humbug.model.TerminalColor.*;
+import static g53298.humbug.view.text.TerminalColor.*;
 
 /**
  *

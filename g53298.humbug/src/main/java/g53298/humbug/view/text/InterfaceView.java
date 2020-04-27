@@ -6,7 +6,7 @@ import g53298.humbug.model.Direction;
 import g53298.humbug.model.Position;
 
 /**
- *
+ * List all the functions available in the View class
  * @author israelmeiresonne
  */
 public interface InterfaceView {

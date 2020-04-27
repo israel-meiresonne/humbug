@@ -1,4 +1,4 @@
-package g53298.humbug.model;
+package g53298.humbug.view.text;
 
 /**
  * <p>
