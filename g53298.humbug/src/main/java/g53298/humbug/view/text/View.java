@@ -93,9 +93,10 @@ public class View implements InterfaceView {
     }
 
     /**
-     * Print two-dim array filled of symbol corresponding to Animal symbol or 
+     * Print two-dim array filled of symbol corresponding to Animal symbol or
      * Square symbol
-     * @param boardStr array filled of symbol corresponding to Animal symbol or 
+     *
+     * @param boardStr array filled of symbol corresponding to Animal symbol or
      * Square symbol
      */
     private void printBoardStr(String[][] boardStr) {

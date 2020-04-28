@@ -1,6 +1,7 @@
 package g53298.humbug.model;
 
 /**
+ * This class includes all the functions and attributes shared by all animals
  *
  * @author israelmeiresonne
  */
@@ -25,10 +26,10 @@ public abstract class Animal {
      * @param positionOnBoard
      */
     public void setPositionOnBoard(Position positionOnBoard) {
-        this.positionOnBoard = positionOnBoard != null 
-                ? new Position(positionOnBoard.getRow(), 
-                        positionOnBoard.getColumn())
-                : null;
+        this.positionOnBoard = (positionOnBoard == null)
+                ? null
+                : new Position(positionOnBoard.getRow(),
+                        positionOnBoard.getColumn());
     }
 
     /**
@@ -46,8 +47,8 @@ public abstract class Animal {
      * @return the position of the animal
      */
     public Position getPositionOnBoard() {
-        return positionOnBoard != null 
-                ? new Position(positionOnBoard.getRow(), 
+        return positionOnBoard != null
+                ? new Position(positionOnBoard.getRow(),
                         positionOnBoard.getColumn())
                 : null;
     }
@@ -67,7 +68,7 @@ public abstract class Animal {
      * @param board the game board
      * @param direction the direction to move
      * @param animals animal to move
-     * @return -the new position if the animal moved, the initial position the
+     * @return the new position if the animal moved, the initial position the
      * animal can't move in the direction given in param or null if the animal
      * is fallen of the board
      */
