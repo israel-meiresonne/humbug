@@ -1,6 +1,5 @@
 package g53298.humbug.model;
 
-import static g53298.humbug.model.SquareType.*;
 import static g53298.humbug.view.text.TerminalColor.*;
 
 /**
@@ -34,38 +33,28 @@ public class Snail extends Animal {
             Animal... animals) {
         Position currentPos = this.getPositionOnBoard();
         Position newPos = currentPos.next(direction);
-        boolean isInside = board.isInside(newPos);
-        boolean isFree = isFree(newPos, animals);
-        if (isInside && isFree) {
-            this.setPositionOnBoard(newPos);
-            this.setOnStar(board.getSquareType(newPos) == STAR);
-            if (this.isOnStar()) {
-                board.switchToGrass(newPos);
-            }
-            return newPos;
+        updatePosition(board, direction, animals);
+        if (this.isOnStar()) {
+            board.switchToGrass(newPos);
         }
-        if (!isInside) {
-            this.setPositionOnBoard(null);
-            return null;
-        }
-        return currentPos;
+        return this.getPositionOnBoard();
     }
 
-    /**
-     * Check if the position given in param content any animal
-     *
-     * @param position the position to check if is free
-     * @param animals all animal of the board
-     * @return true if there is any animal on the positio else false
-     */
-    private boolean isFree(Position position, Animal... animals) {
-        boolean isFree = true;
-        for (Animal animal : animals) {
-            isFree = isFree ? !position.equals(animal.getPositionOnBoard())
-                    : isFree;
-        }
-        return isFree;
-    }
+//    /**
+//     * Check if the position given in param content any animal
+//     *
+//     * @param position the position to check if is free
+//     * @param animals all animal of the board
+//     * @return true if there is any animal on the positio else false
+//     */
+//    private boolean isFree(Position position, Animal... animals) {
+//        boolean isFree = true;
+//        for (Animal animal : animals) {
+//            isFree = isFree ? !position.equals(animal.getPositionOnBoard())
+//                    : isFree;
+//        }
+//        return isFree;
+//    }
 
     @Override
     public String toString() {

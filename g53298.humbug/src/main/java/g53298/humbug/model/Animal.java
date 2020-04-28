@@ -1,5 +1,7 @@
 package g53298.humbug.model;
 
+import static g53298.humbug.model.SquareType.*;
+
 /**
  * This class includes all the functions and attributes shared by all animals
  *
@@ -74,4 +76,52 @@ public abstract class Animal {
      */
     public abstract Position move(Board board, Direction direction,
             Animal... animals);
+
+    /**
+     * Move the current animal into the direction passed in param and return 
+     * true if the animal can still move in the requested direction else false
+     * @param board the game board
+     * @param direction the direction to move
+     * @param animals animal to move
+     * @return true if the animal can still move in the requested direction 
+     * else false
+     */
+    protected boolean updatePosition(Board board, Direction direction,
+            Animal... animals) {
+        Position currentPos = this.getPositionOnBoard();
+        Position newPos = currentPos.next(direction);
+        boolean isInside = board.isInside(newPos);
+        boolean isFree = isFree(newPos, animals);
+        boolean isArrived = false;
+
+        if (isInside && isFree) {
+            this.setPositionOnBoard(newPos);
+            this.setOnStar(board.getSquareType(newPos) == STAR);
+            isArrived = this.isOnStar();
+            return isArrived;
+        }
+        if (!isInside) {
+            this.setPositionOnBoard(null);
+            isArrived = true;  // this line is right there for the understanding
+            return isArrived;
+        }
+        isArrived = true;  // this line is right there for the understanding
+        return isArrived;
+    }
+
+    /**
+     * Check if the position given in param content any animal
+     *
+     * @param position the position to check if is free
+     * @param animals all animal of the board
+     * @return true if there is any animal on the positio else false
+     */
+    private boolean isFree(Position position, Animal... animals) {
+        boolean isFree = true;
+        for (Animal animal : animals) {
+            isFree = isFree ? !position.equals(animal.getPositionOnBoard())
+                    : isFree;
+        }
+        return isFree;
+    }
 }
