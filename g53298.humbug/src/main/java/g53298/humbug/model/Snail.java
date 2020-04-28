@@ -4,6 +4,7 @@ import static g53298.humbug.model.SquareType.*;
 import static g53298.humbug.view.text.TerminalColor.*;
 
 /**
+ * This class specifies the behavior of a snail
  *
  * @author israelmeiresonne
  */
@@ -12,7 +13,7 @@ public class Snail extends Animal {
     /**
      * Constructor for a Snails
      *
-     * @param positionOnBoard
+     * @param positionOnBoard the animal's starting position
      */
     public Snail(Position positionOnBoard) {
         super(positionOnBoard);
@@ -24,7 +25,7 @@ public class Snail extends Animal {
      * @param board the game board
      * @param direction the direction to move
      * @param animals animal to move
-     * @return -the new position if the animal moved, the initial position the
+     * @return the new position if the animal moved, the initial position the
      * animal can't move in the direction given in param or null if the animal
      * is fallen of the board
      */
@@ -42,12 +43,12 @@ public class Snail extends Animal {
                 board.switchToGrass(newPos);
             }
             return newPos;
-        } else if (!isInside) {
+        }
+        if (!isInside) {
             this.setPositionOnBoard(null);
             return null;
-        } else {
-            return currentPos;
         }
+        return currentPos;
     }
 
     /**
@@ -68,8 +69,7 @@ public class Snail extends Animal {
 
     @Override
     public String toString() {
-        return BLUE+"◎";
+        return BLUE + "◎";
     }
-    
-    
+
 }
