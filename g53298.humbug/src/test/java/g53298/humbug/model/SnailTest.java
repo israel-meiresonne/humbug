@@ -35,7 +35,6 @@ public class SnailTest {
     @Test
     public void testMove() {
         System.out.println("move_general");
-        setUp();
         Snail instance = (Snail) animals[0];
         Position expResult = new Position(0, 1); //.next(Direction.EAST);
         Position result = instance.move(board, Direction.EAST, animals);
@@ -48,7 +47,6 @@ public class SnailTest {
     @Test
     public void testMove_next_notfree() {
         System.out.println("move next case not free");
-        setUp();
         Snail instance = (Snail) animals[0];
         animals[1].setPositionOnBoard(new Position(0, 1));
         Position expResult = new Position(0, 0); //don't move
@@ -64,7 +62,6 @@ public class SnailTest {
     @Test
     public void testMove_next_onstar() {
         System.out.println("move next on star");
-        setUp();
         Snail instance = (Snail) animals[1];
         Position expResult = new Position(2, 2);
         Position result = instance.move(board, Direction.SOUTH, animals);
@@ -79,7 +76,6 @@ public class SnailTest {
     @Test
     public void testMove_next_notinside_2() {
         System.out.println("move next case null");
-        setUp();
         Snail instance = (Snail) animals[0];
         Position expResult = null; // move and fall
         Position result = instance.move(board, Direction.WEST, animals);
