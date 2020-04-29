@@ -1,28 +1,44 @@
 package g53298.humbug.controller;
 
-import g53298.humbug.model.Direction;
 import g53298.humbug.model.Model;
+import g53298.humbug.model.Position;
 import g53298.humbug.view.text.InterfaceView;
 
 /**
+ * This class is used to manage the view and the model to run the game
  *
  * @author israelmeiresonne
  */
 public class Controller {
-    private Model game;
-    private InterfaceView view;
-    
-    public Controller(InterfaceView view, Model game){
+
+    private final Model game;
+    private final InterfaceView view;
+
+    /**
+     * Constructor
+     *
+     * @param view used to display de the game
+     * @param game contains the logic of the game
+     */
+    public Controller(InterfaceView view, Model game) {
         this.game = game;
         this.view = view;
     }
-    
-    public void startGame(){
+
+    /**
+     * Start and manage a game
+     */
+    public void startGame() {
         game.startLevel(1);
         boolean isOver = false;
-        while(!isOver){
+        while (!isOver) {
             view.displayBoard(game.getBoard(), game.getAnimals());
-            game.move(view.askPosition(), view.askDirection());
+            Position position = view.askPosition();
+            if (game.isAnimalOn(position)) {
+                game.move(position, view.askDirection());
+            } else {
+                view.displayError("Il n'y a pas d'animal à cette position!\n");
+            }
             isOver = game.levelIsOver();
         }
         view.displayBoard(game.getBoard(), game.getAnimals());

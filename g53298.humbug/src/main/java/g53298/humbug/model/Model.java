@@ -2,6 +2,7 @@ package g53298.humbug.model;
 
 /**
  * This class includes all the functions accessible in the Game class
+ *
  * @author israelmeiresonne
  */
 public interface Model {
@@ -22,6 +23,7 @@ public interface Model {
 
     /**
      * This method initialize the board with the level given in param
+     *
      * @param level the level to load
      */
     void startLevel(int level);
@@ -41,4 +43,12 @@ public interface Model {
      * @param direction the direction where to move the animal
      */
     void move(Position position, Direction direction);
+
+    /**
+     * Check if there is an animal on the position given in param
+     *
+     * @return true if there is an animal on the position given in param else
+     * false
+     */
+    public boolean isAnimalOn(Position position);
 }

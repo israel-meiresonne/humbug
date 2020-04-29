@@ -80,4 +80,21 @@ public class Game implements Model{
             i++;
         }
     }
+        
+    /**
+     * Check if there is an animal on the position given in param
+     * @return true if there is an animal on the position given in param else 
+     * false
+     */
+    public boolean isAnimalOn(Position position){
+        int nbAni = animals.length;
+        int i = 0;
+        boolean found = false;
+        while(!found && i < nbAni){
+            Position aniPos = animals[i].getPositionOnBoard();
+            found = position.equals(aniPos);
+            i++;
+        }
+        return found;
+    }
 }
