@@ -135,7 +135,7 @@ public class View implements InterfaceView {
      * @param message a error message to display
      */
     public void displayError(String message) {
-        System.out.println(message);
+        System.out.println(RED+message);
     }
 
     /**

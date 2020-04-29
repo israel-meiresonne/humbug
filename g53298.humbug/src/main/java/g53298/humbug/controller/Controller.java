@@ -37,7 +37,7 @@ public class Controller {
             if (game.isAnimalOn(position)) {
                 game.move(position, view.askDirection());
             } else {
-                view.displayError("Il n'y a pas d'animal à cette position!\n");
+                view.displayError("Il n'y a pas d'animal à cette position!");
             }
             isOver = game.levelIsOver();
         }
