@@ -37,7 +37,7 @@ public class Spider extends Animal {
             Position currentPos = this.getPositionOnBoard();
             Position newPos = currentPos.next(direction);
             isArrived = updatePosition(board, direction, animals);
-            if (this.isOnStar()) {
+            if (isArrived && this.isOnStar()) {
                 board.switchToGrass(newPos);
             }
         }

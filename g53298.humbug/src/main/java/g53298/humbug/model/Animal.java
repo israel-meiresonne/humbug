@@ -97,7 +97,8 @@ public abstract class Animal {
         if (isInside && isFree) {
             this.setPositionOnBoard(newPos);
             this.setOnStar(board.getSquareType(newPos) == STAR);
-            isArrived = this.isOnStar();
+//            isArrived = this.isOnStar();
+              isArrived = !this.isFree(newPos.next(direction), animals);
             return isArrived;
         }
         if (!isInside) {
