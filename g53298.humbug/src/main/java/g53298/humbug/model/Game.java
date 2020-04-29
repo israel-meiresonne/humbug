@@ -1,7 +1,7 @@
 package g53298.humbug.model;
 
 /**
- *
+ * this class includes all the elements necessary to play a game
  * @author israelmeiresonne
  */
 public class Game implements Model{
@@ -25,8 +25,8 @@ public class Game implements Model{
     }
 
     /**
-     * This method initialize the board with the first level
-     * @param level 
+     * This method initialize the board with the level given in param
+     * @param level the level to load
      */
     public void startLevel(int level){
         animals = new Animal[1];

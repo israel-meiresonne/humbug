@@ -1,7 +1,7 @@
 package g53298.humbug.model;
 
 /**
- *
+ * This class includes all the functions accessible in the Game class
  * @author israelmeiresonne
  */
 public interface Model {
@@ -21,9 +21,8 @@ public interface Model {
     Animal[] getAnimals();
 
     /**
-     * This method initialize the board with the first level
-     *
-     * @param level
+     * This method initialize the board with the level given in param
+     * @param level the level to load
      */
     void startLevel(int level);
 
