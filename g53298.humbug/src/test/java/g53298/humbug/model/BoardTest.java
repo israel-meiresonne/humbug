@@ -34,7 +34,6 @@ public class BoardTest {
     @Test
     public void testIsInside_general_true() {
         System.out.println("isInside general");
-        setUp();
         Position position = new Position(0,0);
         boolean expResult = true;
         boolean result = board.isInside(position);
@@ -47,7 +46,6 @@ public class BoardTest {
     @Test
     public void testIsInside_false_null() {
         System.out.println("isInside false null");
-        setUp();
         Position position = new Position(1,0);
         boolean expResult = false;
         boolean result = board.isInside(position);
@@ -60,7 +58,6 @@ public class BoardTest {
     @Test
     public void testIsInside_false_outbound_negative() {
         System.out.println("isInside false out of bound");
-        setUp();
         Position position = new Position(-1,0);
         boolean expResult = false;
         boolean result = board.isInside(position);
@@ -73,7 +70,6 @@ public class BoardTest {
     @Test
     public void testIsInside_false_outbound_positive_row() {
         System.out.println("isInside false out of bound");
-        setUp();
         Position position = new Position(10,1);
         boolean expResult = false;
         boolean result = board.isInside(position);
@@ -86,7 +82,6 @@ public class BoardTest {
     @Test
     public void testIsInside_false_outbound_positive_column() {
         System.out.println("isInside false out of bound");
-        setUp();
         Position position = new Position(2,23);
         boolean expResult = false;
         boolean result = board.isInside(position);
@@ -96,7 +91,6 @@ public class BoardTest {
     @Test
     public void testGetSquareType_exist() {
         System.out.println("get square type exist");
-        setUp();
         SquareType expResult = SquareType.GRASS;
         SquareType result = board.getSquareType(new Position(0,0));
         assertEquals(expResult, result);
@@ -105,7 +99,6 @@ public class BoardTest {
     @Test
     public void testGetSquareType_exist_star() {
         System.out.println("get square type exist");
-        setUp();
         SquareType expResult = SquareType.STAR;
         SquareType result = board.getSquareType(new Position(2,2));
         assertEquals(expResult, result);
@@ -114,7 +107,6 @@ public class BoardTest {
     @Test
     public void testGetSquareType_null() {
         System.out.println("get case type illegal argument");
-        setUp();
         Assertions.assertThrows(IllegalArgumentException.class, 
                 () -> { board.getSquareType(new Position(1, 0));
     });
