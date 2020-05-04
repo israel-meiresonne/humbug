@@ -2,6 +2,7 @@ package g53298.humbug.model;
 
 /**
  * Direction lists the directions in which the animals will move
+ *
  * @author israelmeiresonne
  */
 public enum Direction {
@@ -37,6 +38,35 @@ public enum Direction {
      */
     public int getDeltaColumn() {
         return deltaColumn;
+    }
+
+    /**
+     * To get the opposite direction of the current direction
+     *
+     * @return the opposite direction of the current direction
+     */
+    public Direction opposite() {
+        Direction dir = null;
+        switch (this) {
+            case NORTH:
+                dir = SOUTH;
+                break;
+
+            case SOUTH:
+                dir = NORTH;
+                break;
+
+            case EAST:
+                dir = WEST;
+
+                break;
+
+            case WEST:
+                dir = EAST;
+                break;
+
+        }
+        return dir;
     }
 
 }
