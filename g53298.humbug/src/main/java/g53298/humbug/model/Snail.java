@@ -31,30 +31,15 @@ public class Snail extends Animal {
     @Override
     public Position move(Board board, Direction direction,
             Animal... animals) {
+        Position currentPos = this.getPositionOnBoard();
+        Position newPos = currentPos.next(direction);
         updatePosition(board, direction, animals);
         if (this.isOnStar()) {
-            Position currentPos = this.getPositionOnBoard();
-            Position newPos = currentPos.next(direction);
             board.switchToGrass(newPos);
         }
         return this.getPositionOnBoard();
     }
 
-//    /**
-//     * Check if the position given in param content any animal
-//     *
-//     * @param position the position to check if is free
-//     * @param animals all animal of the board
-//     * @return true if there is any animal on the positio else false
-//     */
-//    private boolean isFree(Position position, Animal... animals) {
-//        boolean isFree = true;
-//        for (Animal animal : animals) {
-//            isFree = isFree ? !position.equals(animal.getPositionOnBoard())
-//                    : isFree;
-//        }
-//        return isFree;
-//    }
     @Override
     public String toString() {
         return BLUE + "◎";

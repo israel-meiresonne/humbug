@@ -81,6 +81,31 @@ public class SnailTest {
         Position result = instance.move(board, Direction.WEST, animals);
         assertEquals(expResult, result);
     }
+    
+        /**
+     * Test of move method, of class Spider.
+     */
+    @Test
+    public void testMove_stopOnWall() {
+        System.out.println("stop before wall");
+        Square sqEastWall = new Square(GRASS);
+        sqEastWall.setEastWall(true);
+        board = new Board(new Square[][]{
+            {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(GRASS)},
+            {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(GRASS)},
+            {new Square(GRASS), sqEastWall, new Square(GRASS), new Square(GRASS)},
+            {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(GRASS)},
+            {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(STAR)}
+        });
+        animals = new Animal[] {
+            new Spider(new Position(0, 0)),
+            new Snail(new Position(2, 0))
+        };
+        Snail instance = (Snail) animals[1];
+        Position expResult = new Position(2, 1);
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
+    }  
 
     
 }
