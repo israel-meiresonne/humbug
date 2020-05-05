@@ -78,27 +78,32 @@ public abstract class Animal {
             Animal... animals);
 
     /**
-     * Move the current animal into the direction passed in param and return 
+     * Move the current animal into the direction passed in param and return
      * true if the animal can still move in the requested direction else false
+     *
      * @param board the game board
      * @param direction the direction to move
      * @param animals animal to move
-     * @return true if the animal can still move in the requested direction 
-     * else false
+     * @return true if the animal can still move in the requested direction else
+     * false
      */
     protected boolean updatePosition(Board board, Direction direction,
             Animal... animals) {
         Position currentPos = this.getPositionOnBoard();
         Position newPos = currentPos.next(direction);
         boolean isInside = board.isInside(newPos);
+        boolean hasWall = board.hasWall(currentPos, direction);
         boolean isFree = isFree(newPos, animals);
         boolean isArrived = false;
 
-        if (isInside && isFree) {
+        if (isInside && !hasWall && isFree) {
             this.setPositionOnBoard(newPos);
             this.setOnStar(board.getSquareType(newPos) == STAR);
-//            isArrived = this.isOnStar();
-              isArrived = !this.isFree(newPos.next(direction), animals);
+            isArrived = !this.isFree(newPos.next(direction), animals);
+            return isArrived;
+        }
+        if(hasWall){
+            isArrived = true;  // this line is right there for the understanding
             return isArrived;
         }
         if (!isInside) {

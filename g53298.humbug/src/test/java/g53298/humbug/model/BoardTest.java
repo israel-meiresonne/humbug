@@ -200,9 +200,6 @@ public class BoardTest {
     public void testHasWall_position_inside_false_newPos_outside_false() {
         System.out.println("square is inside and hasn't wall, "
                 + "next square outside");
-        Square sqEastWall = new Square(GRASS);
-        Square nextSqEastWall = new Square(GRASS);
-        nextSqEastWall.setWestWall(true);
         Square[][] sqs = new Square[][]{
             {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(GRASS)},
             {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(GRASS)},
