@@ -50,7 +50,7 @@ public class Board {
         }
         return (pos.getRow() < getNbRow())
                 && (pos.getColumn() < getNbColumn())
-                && (pos.getRow() >= 0) 
+                && (pos.getRow() >= 0)
                 && (pos.getColumn() >= 0)
                 && board[pos.getRow()][pos.getColumn()] != null;
     }
@@ -64,37 +64,66 @@ public class Board {
      * the board
      */
     public SquareType getSquareType(Position pos) {
-        if(!isInside(pos)){
+        if (!isInside(pos)) {
             throw new IllegalArgumentException("The position given in parameter"
                     + " is out of the board");
         }
         return board[pos.getRow()][pos.getColumn()].getType();
     }
-    
+
     /**
      * Access to the board's number of row
+     *
      * @return the board's number of row
      */
-    public int getNbRow(){
+    public int getNbRow() {
         return board.length;
     }
-    
+
     /**
      * Access to the board's number of column
+     *
      * @return the board's number of column
      */
-    public int getNbColumn(){
+    public int getNbColumn() {
         return board[0].length;
     }
-    
+
     /**
-     * Switch the type of the square at the position given in param 
-     * from STAR to GRASS
+     * Switch the type of the square at the position given in param from STAR to
+     * GRASS
+     *
      * @param position the position of the quare to switch to GRASS
      */
-    public void switchToGrass(Position position){
-        if((isInside(position)) && (this.getSquareType(position) == STAR)){
+    public void switchToGrass(Position position) {
+        if ((isInside(position)) && (this.getSquareType(position) == STAR)) {
             board[position.getRow()][position.getColumn()].setType(GRASS);
         }
+    }
+
+    /**
+     * Check in the board if there is a wall in the direction given in param
+     *
+     * @param pos of a Square in the board
+     * @param direction where to check in the Square if there is a wall
+     * @return true if there is a wall else false
+     */
+    public boolean hasWall(Position pos, Direction direction) {
+        if (isInside(pos)) {
+            boolean posHasWall
+                    = board[pos.getRow()][pos.getColumn()].hasWall(direction);
+            if (posHasWall) {
+                return true;
+            }
+
+            Position newPos = pos.next(direction);
+            if (isInside(newPos)) {
+                boolean newPosHasWall
+                        = board[newPos.getRow()][newPos.getColumn()]
+                                .hasWall(direction.opposite());
+                return newPosHasWall;
+            }
+        }
+        return false;
     }
 }

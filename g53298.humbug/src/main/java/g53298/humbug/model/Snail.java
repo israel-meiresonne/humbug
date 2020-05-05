@@ -31,10 +31,10 @@ public class Snail extends Animal {
     @Override
     public Position move(Board board, Direction direction,
             Animal... animals) {
-        Position currentPos = this.getPositionOnBoard();
-        Position newPos = currentPos.next(direction);
         updatePosition(board, direction, animals);
         if (this.isOnStar()) {
+            Position currentPos = this.getPositionOnBoard();
+            Position newPos = currentPos.next(direction);
             board.switchToGrass(newPos);
         }
         return this.getPositionOnBoard();
@@ -55,7 +55,6 @@ public class Snail extends Animal {
 //        }
 //        return isFree;
 //    }
-
     @Override
     public String toString() {
         return BLUE + "◎";
