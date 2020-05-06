@@ -1,43 +1,45 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package g53298.humbug.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static g53298.humbug.model.SquareType.*;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  *
- * @author Pierre Bettens (pbt) <pbettens@he2b.be>
+ * @author israelmeiresonne
  */
-public class SpiderTest {
+public class LadybirdTest {
 
     private Board board;
     private Animal[] animals;
-    
+
     @BeforeEach
     public void setUp() {
         board = new Board(new Square[][]{
-            {new Square(GRASS), new Square(GRASS), null},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
+            {new Square(GRASS), new Square(GRASS), new Square(GRASS), null},
+            {null, new Square(GRASS), new Square(GRASS), new Square(GRASS)},
+            {null, null, new Square(GRASS), new Square(STAR)}
         });
-        animals = new Animal[] {
-            new Spider(new Position(0, 0)),
-            new Snail(new Position(1, 2))
+        animals = new Animal[]{
+            new Ladybird(new Position(0, 0)),
+            new Ladybird(new Position(1, 2))
         };
     }
 
     /**
-     * Test of move method, of class Spider.
+     * Test of move method, of class Snail.
      */
     @Test
     public void testMove() {
-        System.out.println("move and fall");
-        Spider instance = (Spider) animals[0];
-        Position expResult = null; // fall
+        System.out.println("move_general");
+        Ladybird instance = (Ladybird) animals[0];
+        Position expResult = new Position(0, 2);
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
     }
@@ -53,7 +55,8 @@ public class SpiderTest {
             {null, new Square(GRASS), new Square(GRASS)},
             {null, null, new Square(STAR)}
         });
-        Spider instance = (Spider) animals[0];
+        Ladybird instance = (Ladybird) animals[0];
+        instance.setPositionOnBoard(new Position(0, 1));
         Position expResult = null;
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
@@ -71,18 +74,19 @@ public class SpiderTest {
             {null, null, new Square(STAR)}
         });
         animals[1] = new Snail(new Position(0, 2));
-        Spider instance = (Spider) animals[0];
-        Position expResult = new Position(0,1);
+        Ladybird instance = (Ladybird) animals[0];
+        Position expResult = new Position(0, 1);
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
     }
+
     /**
      * Test of move method, of class Snail.
      */
     @Test
     public void testMove_next_notfree() {
         System.out.println("move next case not free");
-        Spider instance = (Spider) animals[0];
+        Ladybird instance = (Ladybird) animals[0];
         animals[1].setPositionOnBoard(new Position(0, 1));
         Position expResult = new Position(0, 0); //don't move
         Position result = instance.move(board, Direction.EAST, animals);
@@ -95,7 +99,7 @@ public class SpiderTest {
     @Test
     public void testMove_next_notinside() {
         System.out.println("move next case null and fall");
-        Spider instance = (Spider) animals[0];
+        Ladybird instance = (Ladybird) animals[0];
         Position expResult = null; // fall
         Position result = instance.move(board, Direction.SOUTH, animals);
         assertEquals(expResult, result);
@@ -109,11 +113,11 @@ public class SpiderTest {
             {null, new Square(GRASS), new Square(GRASS), null},
             {null, null, new Square(STAR), null}
         });
-        animals = new Animal[] {
-            new Spider(new Position(0, 0)),
-            new Snail(new Position(0, 3))
+        animals = new Animal[]{
+            new Ladybird(new Position(0, 0)),
+            new Snail(new Position(1, 3))
         };
-        Spider instance = (Spider) animals[0];
+        Ladybird instance = (Ladybird) animals[0];
         Position expResult = new Position(0, 2);
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
@@ -129,17 +133,17 @@ public class SpiderTest {
             {null, new Square(GRASS), new Square(GRASS), null},
             {null, null, new Square(STAR), null}
         });
-        animals = new Animal[] {
-            new Spider(new Position(0, 0)),
-            new Snail(new Position(0, 3))
+        animals = new Animal[]{
+            new Ladybird(new Position(0, 0)),
+            new Snail(new Position(1, 3))
         };
-        Spider instance = (Spider) animals[0];
+        Ladybird instance = (Ladybird) animals[0];
         Position expResult = new Position(0, 2);
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
         assertTrue(animals[0].isOnStar());
         assertEquals(GRASS, board.getSquareType(result));
-    }    
+    }
 
     /**
      * Test of move method, of class Spider.
@@ -149,20 +153,23 @@ public class SpiderTest {
         System.out.println("stop before wall");
         Square sqEastWall = new Square(GRASS);
         sqEastWall.setEastWall(true);
+        Square sqWestWall = new Square(GRASS);
+        sqWestWall.setWestWall(true);
         board = new Board(new Square[][]{
             {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(GRASS)},
             {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(GRASS)},
-            {new Square(GRASS), new Square(GRASS), new Square(GRASS), sqEastWall},
+            {new Square(GRASS), sqEastWall, sqWestWall, new Square(GRASS)},
             {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(GRASS)},
             {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(STAR)}
         });
-        animals = new Animal[] {
-            new Spider(new Position(2, 0)),
+        animals = new Animal[]{
+            new Ladybird(new Position(2, 0)),
             new Snail(new Position(0, 3))
         };
-        Spider instance = (Spider) animals[0];
-        Position expResult = new Position(2, 3);
+        Ladybird instance = (Ladybird) animals[0];
+        Position expResult = new Position(2, 1); // stopped
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
-    }    
+    }
+
 }

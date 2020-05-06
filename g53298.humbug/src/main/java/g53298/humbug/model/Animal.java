@@ -78,16 +78,14 @@ public abstract class Animal {
             Animal... animals);
 
     /**
-     * Move the current animal into the direction passed in param and return
-     * true if the animal can still move in the requested direction else false
+     * Make crawl the current animal into the direction passed in param
      *
      * @param board the game board
      * @param direction the direction to move
      * @param animals animal to move
-     * @return true if the animal can still move in the requested direction else
-     * false
+     * @return true if the animal is arrived (can't move anymore) else false
      */
-    protected boolean updatePosition(Board board, Direction direction,
+    protected boolean moveOneCrawling(Board board, Direction direction,
             Animal... animals) {
         Position currentPos = this.getPositionOnBoard();
         Position newPos = currentPos.next(direction);
@@ -98,11 +96,11 @@ public abstract class Animal {
 
         if (isInside && !hasWall && isFree) {
             this.setPositionOnBoard(newPos);
-            this.setOnStar(board.getSquareType(newPos) == STAR);
+//            this.setOnStar(board.getSquareType(newPos) == STAR); // deplacer dans les animaux
             isArrived = !this.isFree(newPos.next(direction), animals);
             return isArrived;
         }
-        if(hasWall){
+        if (hasWall) {
             isArrived = true;  // this line is right there for the understanding
             return isArrived;
         }
@@ -113,6 +111,96 @@ public abstract class Animal {
         }
         isArrived = true;  // this line is right there for the understanding
         return isArrived;
+    }
+
+    /**
+     * Make jump the current animal into the direction passed in param
+     *
+     * @param board the game board
+     * @param direction the direction to move
+     * @param animals animal to move
+     * @return true if the animal is arrived (can't move anymore) else false
+     */
+    protected boolean moveOneJumping(Board board, Direction direction,
+            Animal... animals) {
+        Position currentPos = this.getPositionOnBoard();
+        Position newPos = currentPos.next(direction);
+        boolean isInside = board.isInside(newPos);
+        boolean isFree = isFree(newPos, animals);
+        boolean isArrived = false;
+
+        if (isInside && isFree) {
+            this.setPositionOnBoard(newPos);
+            return isArrived;
+        }
+        if (isInside && !isFree) {
+            this.setPositionOnBoard(newPos);
+            isArrived = this.moveOneJumping(board, direction, animals);
+            return isArrived;
+        }
+        if (!isInside) {
+            this.setPositionOnBoard(null);
+            isArrived = true;
+            return isArrived;
+        }
+        return isArrived;
+    }
+
+    /**
+     * Make fly the current animal into the direction passed in param
+     *
+     * @param board the game board
+     * @param direction the direction to move
+     * @param animals animal to move
+     * @return true if the animal is arrived (can't move anymore) else false
+     */
+    protected boolean moveOneFlying(Board board, Direction direction,
+            Animal... animals) {
+        Position currentPos = this.getPositionOnBoard();
+        Position newPos = currentPos.next(direction);
+        boolean isInside = board.isInside(newPos);
+        boolean isFree = isFree(newPos, animals);
+        boolean isArrived = false;
+
+        if (isInside && isFree) {
+            this.setPositionOnBoard(newPos);
+            return isArrived;
+        }
+        if (isInside && !isFree) {
+            this.setPositionOnBoard(newPos);
+            isArrived = this.moveOneFlying(board, direction, animals);
+            return isArrived;
+        }
+        if (!isInside) {
+            boolean inArray = (newPos.getRow() < board.getNbRow())
+                    && (newPos.getColumn() < board.getNbColumn())
+                    && (newPos.getRow() >= 0)
+                    && (newPos.getColumn() >= 0);
+            if (inArray) {
+                isArrived = this.moveOneFlying(board, direction, animals);
+                return isArrived;
+            }
+            this.setPositionOnBoard(null);
+            isArrived = true;
+            return isArrived;
+        }
+        return isArrived;
+    }
+
+    /**
+     * Update the animal and the board. set true animal's onStar attribut and 
+     * switch the type of the square where he's to GRASS If the animal is on a 
+     * start else set onStar to false
+     * @param board the game board
+     */
+    protected void landing(Board board) {
+        Position currentPos = this.getPositionOnBoard();
+        if (currentPos != null) {
+            this.setOnStar(board.getSquareType(currentPos) == STAR);
+            if (this.isOnStar()) {
+                board.switchToGrass(currentPos);
+            }
+        }
     }
 
     /**

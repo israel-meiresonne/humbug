@@ -26,17 +26,13 @@ public class Snail extends Animal {
      * @param animals animal to move
      * @return the new position if the animal moved, the initial position the
      * animal can't move in the direction given in param or null if the animal
-     * is fallen of the board
+     * is fallen out of the board
      */
     @Override
     public Position move(Board board, Direction direction,
             Animal... animals) {
-        Position currentPos = this.getPositionOnBoard();
-        Position newPos = currentPos.next(direction);
-        updatePosition(board, direction, animals);
-        if (this.isOnStar()) {
-            board.switchToGrass(newPos);
-        }
+        moveOneCrawling(board, direction, animals);
+        landing(board);
         return this.getPositionOnBoard();
     }
 

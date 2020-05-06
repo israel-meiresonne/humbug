@@ -3,18 +3,18 @@ package g53298.humbug.model;
 import static g53298.humbug.view.text.TerminalColor.*;
 
 /**
- * This class specifies the behavior of a spider
+ * This class specifies the behavior of a Grasshopper
  *
  * @author israelmeiresonne
  */
-public class Spider extends Animal {
+public class Grasshopper extends Animal {
 
     /**
-     * Constructor for a Spider
+     * Constructor for a Grasshopper
      *
      * @param positionOnBoard the animal's starting position
      */
-    public Spider(Position positionOnBoard) {
+    public Grasshopper(Position positionOnBoard) {
         super(positionOnBoard);
     }
 
@@ -31,18 +31,14 @@ public class Spider extends Animal {
     @Override
     public Position move(Board board, Direction direction,
             Animal... animals) {
-        boolean isArrived = false;
-        while (!isArrived) {
-            isArrived = moveOneCrawling(board, direction, animals);
-            if (isArrived) {
-                landing(board);
-            }
-        }
+            moveOneJumping(board, direction, animals);
+            landing(board);
         return this.getPositionOnBoard();
     }
 
     @Override
     public String toString() {
-        return MAGENTA + "*";
+        return GREEN + "‡";
     }
+
 }

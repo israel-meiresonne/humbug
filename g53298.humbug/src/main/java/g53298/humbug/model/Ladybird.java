@@ -3,18 +3,20 @@ package g53298.humbug.model;
 import static g53298.humbug.view.text.TerminalColor.*;
 
 /**
- * This class specifies the behavior of a spider
+ * This class specifies the behavior of a Ladybird
  *
  * @author israelmeiresonne
  */
-public class Spider extends Animal {
+public class Ladybird extends Animal {
+
+    private int NB_MOVE = 2;
 
     /**
-     * Constructor for a Spider
+     * Constructor for a Ladybird
      *
      * @param positionOnBoard the animal's starting position
      */
-    public Spider(Position positionOnBoard) {
+    public Ladybird(Position positionOnBoard) {
         super(positionOnBoard);
     }
 
@@ -32,9 +34,9 @@ public class Spider extends Animal {
     public Position move(Board board, Direction direction,
             Animal... animals) {
         boolean isArrived = false;
-        while (!isArrived) {
+        for (int i = 1; (!isArrived) && (i <= NB_MOVE); i++) {
             isArrived = moveOneCrawling(board, direction, animals);
-            if (isArrived) {
+            if (isArrived || (i == NB_MOVE)) {
                 landing(board);
             }
         }
@@ -43,6 +45,7 @@ public class Spider extends Animal {
 
     @Override
     public String toString() {
-        return MAGENTA + "*";
+        return RED + "¤";
     }
+
 }
