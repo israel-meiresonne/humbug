@@ -3,19 +3,20 @@ package g53298.humbug.model;
 import static g53298.humbug.view.text.TerminalColor.*;
 
 /**
- * This class specifies the behavior of a Ladybird
+ * This class specifies the behavior of a Bumbelbee
  *
  * @author israelmeiresonne
  */
-public class Ladybird extends Animal {
-    private int NB_MOVE = 2;
+public class Bumbelbee extends Animal {
+
+    private final int NB_MOVE = 2;
 
     /**
-     * Constructor for a Ladybird
+     * Constructor for a Bumbelbee
      *
      * @param positionOnBoard the animal's starting position
      */
-    public Ladybird(Position positionOnBoard) {
+    public Bumbelbee(Position positionOnBoard) {
         super(positionOnBoard);
     }
 
@@ -32,19 +33,14 @@ public class Ladybird extends Animal {
     @Override
     public Position move(Board board, Direction direction,
             Animal... animals) {
-        boolean isArrived = false;
-        for (int i = 1; (!isArrived) && (i <= NB_MOVE); i++) {
-            isArrived = moveOneCrawling(board, direction, animals);
-            if (isArrived || (i == NB_MOVE)) {
-                landing(board);
-            }
-        }
+        moveOneFlying(NB_MOVE, board, direction, animals);
+        landing(board);
         return this.getPositionOnBoard();
     }
 
     @Override
     public String toString() {
-        return RED + "Θ";
+        return YELLOW + "ξ";
     }
 
 }
