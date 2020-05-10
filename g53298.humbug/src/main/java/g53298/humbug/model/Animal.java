@@ -150,15 +150,21 @@ public abstract class Animal {
     /**
      * Make fly the current animal into the direction passed in param
      *
+     * @param nbMove the number of square to cross
      * @param board the game board
      * @param direction the direction to move
      * @param animals animal to move
      * @return true if the animal is arrived (can't move anymore) else false
      */
-    protected boolean moveOneFlying(Board board, Direction direction,
+    protected boolean moveOneFlying(int nbMove, Board board, Direction direction,
             Animal... animals) {
         Position currentPos = this.getPositionOnBoard();
-        Position newPos = currentPos.next(direction);
+        Position newPos = currentPos.next(direction);;
+        
+        for(int i = 1; i < nbMove; i++){
+            newPos = currentPos.next(direction);
+        }
+        
         boolean isInside = board.isInside(newPos);
         boolean isFree = isFree(newPos, animals);
         boolean isArrived = false;
@@ -169,18 +175,18 @@ public abstract class Animal {
         }
         if (isInside && !isFree) {
             this.setPositionOnBoard(newPos);
-            isArrived = this.moveOneFlying(board, direction, animals);
+            isArrived = this.moveOneJumping(board, direction, animals);
             return isArrived;
         }
         if (!isInside) {
-            boolean inArray = (newPos.getRow() < board.getNbRow())
-                    && (newPos.getColumn() < board.getNbColumn())
-                    && (newPos.getRow() >= 0)
-                    && (newPos.getColumn() >= 0);
-            if (inArray) {
-                isArrived = this.moveOneFlying(board, direction, animals);
-                return isArrived;
-            }
+//            boolean inArray = (newPos.getRow() < board.getNbRow())
+//                    && (newPos.getColumn() < board.getNbColumn())
+//                    && (newPos.getRow() >= 0)
+//                    && (newPos.getColumn() >= 0);
+//            if (inArray) {
+//                isArrived = this.moveOneFlying(board, direction, animals);
+//                return isArrived;
+//            }
             this.setPositionOnBoard(null);
             isArrived = true;
             return isArrived;
