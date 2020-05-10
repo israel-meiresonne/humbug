@@ -5,7 +5,8 @@
  */
 package g53298.humbug.model;
 
-import static g53298.humbug.model.SquareType.*;
+import static g53298.humbug.model.SquareType.GRASS;
+import static g53298.humbug.model.SquareType.STAR;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +15,7 @@ import org.junit.jupiter.api.BeforeEach;
  *
  * @author israelmeiresonne
  */
-public class LadybirdTest {
+public class BumbelbeeTest {
 
     private Board board;
     private Animal[] animals;
@@ -27,25 +28,25 @@ public class LadybirdTest {
             {null, null, new Square(GRASS), new Square(STAR)}
         });
         animals = new Animal[]{
-            new Ladybird(new Position(0, 0)),
-            new Ladybird(new Position(1, 2))
+            new Bumbelbee(new Position(0, 0)),
+            new Bumbelbee(new Position(1, 2))
         };
     }
 
     /**
-     * Test of move method, of class Snail.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove() {
         System.out.println("move_general");
-        Ladybird instance = (Ladybird) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         Position expResult = new Position(0, 2);
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of move method, of class Spider.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_endline() {
@@ -55,7 +56,7 @@ public class LadybirdTest {
             {null, new Square(GRASS), new Square(GRASS)},
             {null, null, new Square(STAR)}
         });
-        Ladybird instance = (Ladybird) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         instance.setPositionOnBoard(new Position(0, 1));
         Position expResult = null;
         Position result = instance.move(board, Direction.EAST, animals);
@@ -63,50 +64,73 @@ public class LadybirdTest {
     }
 
     /**
-     * Test of move method, of class Spider.
-     */
-    @Test
-    public void testMove_tootheranimal() {
-        System.out.println("move to other animal");
-        board = new Board(new Square[][]{
-            {new Square(GRASS), new Square(GRASS), new Square(GRASS)},
-            {null, new Square(GRASS), new Square(GRASS)},
-            {null, null, new Square(STAR)}
-        });
-        animals[1] = new Snail(new Position(0, 2));
-        Ladybird instance = (Ladybird) animals[0];
-        Position expResult = new Position(0, 1);
-        Position result = instance.move(board, Direction.EAST, animals);
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of move method, of class Snail.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_next_notfree() {
         System.out.println("move next case not free");
-        Ladybird instance = (Ladybird) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         animals[1].setPositionOnBoard(new Position(0, 1));
-        Position expResult = new Position(0, 0); //don't move
+        Position expResult = new Position(0, 2);
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of move method, of class Snail.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
-    public void testMove_next_notinside() {
-        System.out.println("move next case null and fall");
-        Ladybird instance = (Ladybird) animals[0];
-        Position expResult = null; // fall
+    public void testMove_landingOnAnimal() {
+        System.out.println("move and landing on other animal");
+        board = new Board(new Square[][]{
+            {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(GRASS)},
+            {null, new Square(GRASS), new Square(GRASS), new Square(GRASS)},
+            {null, null, new Square(GRASS), new Square(STAR)}
+        });
+        animals[1] = new Snail(new Position(0, 2));
+        Bumbelbee instance = (Bumbelbee) animals[0];
+        Position expResult = new Position(0, 3);
+        Position result = instance.move(board, Direction.EAST, animals);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of move method, of class Bumbelbee.
+     */
+    @Test
+    public void testMove_flyUpOneEmptySquare() {
+        System.out.println("move next case null by flying");
+        board = new Board(new Square[][]{
+            {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(GRASS)},
+            {null, new Square(GRASS), new Square(GRASS), new Square(GRASS)},
+            {new Square(GRASS), null, new Square(GRASS), new Square(STAR)}
+        });
+        Bumbelbee instance = (Bumbelbee) animals[0];
+        Position expResult = new Position(2, 0); // landing
         Position result = instance.move(board, Direction.SOUTH, animals);
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of move method, of class Ladybird.
+     * Test of move method, of class Bumbelbee.
+     */
+    @Test
+    public void testMove_flyUpTwoEmptySquare() {
+        System.out.println("move next two null case by flying");
+        board = new Board(new Square[][]{
+            {null, new Square(GRASS), new Square(GRASS), new Square(GRASS)},
+            {null, new Square(GRASS), new Square(GRASS), new Square(GRASS)},
+            {new Square(GRASS), null, new Square(GRASS), new Square(STAR)}
+        });
+        Bumbelbee instance = (Bumbelbee) animals[0];
+        instance.setPositionOnBoard(new Position(2, 0));
+        Position expResult = null; // fall
+        Position result = instance.move(board, Direction.NORTH, animals);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_passOnStar() {
@@ -117,10 +141,10 @@ public class LadybirdTest {
             {null, null, new Square(STAR), null}
         });
         animals = new Animal[]{
-            new Ladybird(new Position(0, 0)),
+            new Bumbelbee(new Position(0, 0)),
             new Snail(new Position(1, 3))
         };
-        Ladybird instance = (Ladybird) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         Position expResult = new Position(0, 2);
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
@@ -129,7 +153,7 @@ public class LadybirdTest {
     }
 
     /**
-     * Test of move method, of class Ladybird.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
     public void testMove_nextOnStar() {
@@ -140,10 +164,10 @@ public class LadybirdTest {
             {null, null, new Square(STAR), null}
         });
         animals = new Animal[]{
-            new Ladybird(new Position(0, 0)),
+            new Bumbelbee(new Position(0, 0)),
             new Snail(new Position(1, 3))
         };
-        Ladybird instance = (Ladybird) animals[0];
+        Bumbelbee instance = (Bumbelbee) animals[0];
         Position expResult = new Position(0, 2);
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
@@ -152,11 +176,11 @@ public class LadybirdTest {
     }
 
     /**
-     * Test of move method, of class Spider.
+     * Test of move method, of class Bumbelbee.
      */
     @Test
-    public void testMove_stopOnWall() {
-        System.out.println("stop before wall");
+    public void testMove_jumpUpWall() {
+        System.out.println("fly up wall");
         Square sqEastWall = new Square(GRASS);
         sqEastWall.setEastWall(true);
         Square sqWestWall = new Square(GRASS);
@@ -169,11 +193,11 @@ public class LadybirdTest {
             {new Square(GRASS), new Square(GRASS), new Square(GRASS), new Square(STAR)}
         });
         animals = new Animal[]{
-            new Ladybird(new Position(2, 0)),
-            new Snail(new Position(0, 3))
+            new Bumbelbee(new Position(0, 0)),
+            new Bumbelbee(new Position(2, 0))
         };
-        Ladybird instance = (Ladybird) animals[0];
-        Position expResult = new Position(2, 1); // stopped
+        Bumbelbee instance = (Bumbelbee) animals[1];
+        Position expResult = new Position(2, 2);
         Position result = instance.move(board, Direction.EAST, animals);
         assertEquals(expResult, result);
     }

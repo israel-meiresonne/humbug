@@ -27,7 +27,7 @@ public class GrasshopperTest {
     }
 
     /**
-     * Test of move method, of class Snail.
+     * Test of move method, of class Grasshopper.
      */
     @Test
     public void testMove() {
@@ -39,7 +39,7 @@ public class GrasshopperTest {
     }
 
     /**
-     * Test of move method, of class Snail.
+     * Test of move method, of class Grasshopper.
      */
     @Test
     public void testMove_next_notfree() {
@@ -52,7 +52,7 @@ public class GrasshopperTest {
     }
 
     /**
-     * Test of move method, of class Snail.
+     * Test of move method, of class Grasshopper.
      */
     @Test
     public void testMove_next_onstar() {
@@ -67,7 +67,7 @@ public class GrasshopperTest {
     }
 
     /**
-     * Test of move method, of class Snail.
+     * Test of move method, of class Grasshopper.
      */
     @Test
     public void testMove_next_notinside_2() {
@@ -80,7 +80,7 @@ public class GrasshopperTest {
     }
 
     /**
-     * Test of move method, of class Spider.
+     * Test of move method, of class Grasshopper.
      */
     @Test
     public void testMove_jumpUpWall() {

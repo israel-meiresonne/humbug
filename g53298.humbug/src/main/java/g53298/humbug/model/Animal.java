@@ -162,7 +162,7 @@ public abstract class Animal {
         Position newPos = currentPos.next(direction);;
         
         for(int i = 1; i < nbMove; i++){
-            newPos = currentPos.next(direction);
+            newPos = newPos.next(direction);
         }
         
         boolean isInside = board.isInside(newPos);

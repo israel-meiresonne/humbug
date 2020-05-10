@@ -8,7 +8,7 @@ import static g53298.humbug.view.text.TerminalColor.*;
  * @author israelmeiresonne
  */
 public class Ladybird extends Animal {
-    private int NB_MOVE = 2;
+    private final int NB_MOVE = 2;
 
     /**
      * Constructor for a Ladybird
