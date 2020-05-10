@@ -3,18 +3,20 @@ package g53298.humbug.model;
 import static g53298.humbug.view.text.TerminalColor.*;
 
 /**
- * This class specifies the behavior of a spider
+ * This class specifies the behavior of a Butterfly
  *
  * @author israelmeiresonne
  */
-public class Spider extends Animal {
+public class Butterfly extends Animal {
+
+    private final int NB_MOVE = 3;
 
     /**
-     * Constructor for a Spider
+     * Constructor for a Butterfly
      *
      * @param positionOnBoard the animal's starting position
      */
-    public Spider(Position positionOnBoard) {
+    public Butterfly(Position positionOnBoard) {
         super(positionOnBoard);
     }
 
@@ -31,18 +33,13 @@ public class Spider extends Animal {
     @Override
     public Position move(Board board, Direction direction,
             Animal... animals) {
-        boolean isArrived = false;
-        while (!isArrived) {
-            isArrived = moveOneCrawling(board, direction, animals);
-            if (isArrived) {
-                landing(board);
-            }
-        }
+        moveOneFlying(NB_MOVE, board, direction, animals);
+        landing(board);
         return this.getPositionOnBoard();
     }
 
     @Override
     public String toString() {
-        return BLACK + "*";
+        return LIGHT_GREY + "Σ";
     }
 }

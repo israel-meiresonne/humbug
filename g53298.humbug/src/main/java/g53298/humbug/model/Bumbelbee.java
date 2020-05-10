@@ -1,5 +1,6 @@
 package g53298.humbug.model;
 
+
 import static g53298.humbug.view.text.TerminalColor.*;
 
 /**

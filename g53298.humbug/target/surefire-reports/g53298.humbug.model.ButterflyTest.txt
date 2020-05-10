@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: g53298.humbug.model.ButterflyTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in g53298.humbug.model.ButterflyTest
+g53298.humbug.model.ButterflyTest.testMove  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.NoSuchMethodError: g53298.humbug.model.Butterfly.<init>(Lg53298/humbug/model/Position;)V
+	at g53298.humbug.model.ButterflyTest.setUp(ButterflyTest.java:26)
+
