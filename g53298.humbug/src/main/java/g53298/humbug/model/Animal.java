@@ -110,7 +110,7 @@ public abstract class Animal {
             return isArrived;
         }
         isArrived = true;  // this line is right there for the understanding
-        return isArrived;
+        return isArrived; // default true cause next square isn't free
     }
 
     /**
@@ -143,7 +143,8 @@ public abstract class Animal {
             isArrived = true;
             return isArrived;
         }
-        return isArrived;
+        return isArrived; // return false cause a jumper is never arrived 
+                          // till he touch an free square or fall
     }
 
     /**
@@ -184,7 +185,8 @@ public abstract class Animal {
             isArrived = true;
             return isArrived;
         }
-        return isArrived;
+        return isArrived; // return false cause a flyer is never arrived 
+                          // till he touch an free square or fall
     }
 
     /**
