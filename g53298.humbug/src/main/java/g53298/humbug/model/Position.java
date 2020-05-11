@@ -7,9 +7,14 @@ package g53298.humbug.model;
  */
 public class Position {
 
-    private final int row;
-    private final int column;
+    private int row;
+    private int column;
 
+    /**
+     * Constructor of a position
+     */
+    public Position(){}
+    
     /**
      * Constructor of a position
      *
@@ -17,6 +22,7 @@ public class Position {
      * @param column is the column of the position
      */
     public Position(int row, int column) {
+        this();
         this.row = row;
         this.column = column;
     }
