@@ -12,7 +12,6 @@ public class Game implements Model {
     private Board board;
     private Animal[] animals;
     private int remainingMoves;
-    private int currentLevel;
     private LevelStatus levelStatus;
 
     /**
@@ -50,15 +49,6 @@ public class Game implements Model {
     }
 
     /**
-     * Getter for game's level
-     *
-     * @return game's level
-     */
-    public int getCurrentLevel() {
-        return currentLevel;
-    }
-
-    /**
      * Getter for level's status
      *
      * @return level's status
@@ -73,33 +63,13 @@ public class Game implements Model {
      * @param nLevel the level to load
      */
     public void startLevel(int nLevel) {
-        currentLevel = nLevel;
+        Level level = Level.readLevel(nLevel);
         levelStatus = IN_PROGRESS;
-        remainingMoves = 4;
-        animals = new Animal[1];
-        animals[0] = new Snail(new Position(0, 0));
-        board = Board.getInitialBoard();
+        remainingMoves = level.getnMoves();
+        animals = level.getAnimals();
+        board = level.getBoard();
     }
-
-//    /**
-//     * Check if the level is end by checking if all animal is on a star square
-//     * @return true if the level is end else false
-//     */
-//    public boolean levelIsOver(){
-//        if(animals == null){
-//            throw new IllegalStateException("There are no animals in this"
-//                    + " level!");
-//        }
-//        boolean isOver = true;
-//        int nbAnimal = animals.length;
-//        int i = 0;
-//        while(isOver && (i < nbAnimal)){
-//            isOver = animals[i].isOnStar() 
-//                        || animals[i].getPositionOnBoard() == null;
-//            i++;
-//        }
-//        return isOver;
-//    }
+    
     /**
      * Move the animal in the position given in param to the direction also
      * given in param
