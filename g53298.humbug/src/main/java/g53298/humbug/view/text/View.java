@@ -43,6 +43,91 @@ public class View implements InterfaceView {
     }
 
     /**
+     * displays error message passed in argument
+     *
+     * @param message a error message to display
+     */
+    public void displayError(String message) {
+        System.out.println(RED + message);
+    }
+
+    /**
+     * Ask a position to the user, create and return that position
+     *
+     * @return position entered by the user
+     */
+    public Position askPosition() {
+        boolean isCorrect = false;
+        Position pos = null;
+        while (!isCorrect) {
+            System.out.println("Entrer une position: <ligne> <colonne>");
+            String cmd = in.nextLine();
+            String[] cmdList = cmd.split(" ");
+            if (cmdList.length == 2
+                    && cmdList[0].matches("[0-9]+")
+                    && cmdList[1].matches("[0-9]+")) {
+                int row = Integer.parseInt(cmdList[0]);
+                int column = Integer.parseInt(cmdList[1]);
+                pos = new Position(row, column);
+                isCorrect = true;
+            } else {
+                displayError("La position est incorrect!");
+            }
+        }
+        return pos;
+    }
+
+    /**
+     * Ask a Direction to the user, create and return that Direction
+     *
+     * @return Direction entered by the user
+     */
+    public Direction askDirection() {
+        boolean isCorrect = false;
+        Direction dir = null;
+        while (!isCorrect) {
+            System.out.println("Entrer une direction(n, s, e or o): "
+                    + "<direction>");
+            String cmd = in.nextLine().toLowerCase();
+            switch (cmd) {
+                case "n":
+                    dir = Direction.NORTH;
+                    isCorrect = true;
+                    break;
+                case "s":
+                    dir = Direction.SOUTH;
+                    isCorrect = true;
+                    break;
+                case "e":
+                    dir = Direction.EAST;
+                    isCorrect = true;
+                    break;
+                case "o":
+                    dir = Direction.WEST;
+                    isCorrect = true;
+                    break;
+                default:
+                    displayError("La direction est incorrect!");
+            }
+        }
+        return dir;
+    }
+
+    /**
+     * Display the number of moves stilling
+     *
+     * @param remainingMoves the number of movements remaining
+     */
+    public void displayRemainingMoves(int remainingMoves) {
+        if (remainingMoves > 1) {
+            System.out.println("Il reste " + remainingMoves + " mouvements");
+        } else {
+            System.out.println("Il reste " + remainingMoves + " mouvement");
+
+        }
+    }
+
+    /**
      * Create and fill a two-dim array with the symbol corresponding to the
      * Square contained in the same position of the Board passed in param
      *
@@ -128,93 +213,4 @@ public class View implements InterfaceView {
             System.out.println();
         }
     }
-
-    /**
-     * displays error message passed in argument
-     *
-     * @param message a error message to display
-     */
-    public void displayError(String message) {
-        System.out.println(RED+message);
-    }
-
-    /**
-     * Ask a position to the user, create and return that position
-     *
-     * @return position entered by the user
-     */
-    public Position askPosition() {
-        boolean isCorrect = false;
-        Position pos = null;
-        while (!isCorrect) {
-            System.out.println("Entrer une position: <ligne> <colonne>");
-            String cmd = in.nextLine();
-            String[] cmdList = cmd.split(" ");
-            if (cmdList.length == 2
-                    && cmdList[0].matches("[0-9]+")
-                    && cmdList[1].matches("[0-9]+")) {
-                int row = Integer.parseInt(cmdList[0]);
-                int column = Integer.parseInt(cmdList[1]);
-                pos = new Position(row, column);
-                isCorrect = true;
-            } else {
-                displayError("La position est incorrect!");
-            }
-        }
-        return pos;
-    }
-
-    /**
-     * Ask a Direction to the user, create and return that Direction
-     *
-     * @return Direction entered by the user
-     */
-    public Direction askDirection() {
-        boolean isCorrect = false;
-        Direction dir = null;
-        while (!isCorrect) {
-            System.out.println("Entrer une direction(n, s, e or o): "
-                    + "<direction>");
-            String cmd = in.nextLine().toLowerCase();
-            switch (cmd) {
-                case "n":
-                    dir = Direction.NORTH;
-                    isCorrect = true;
-                    break;
-                case "s":
-                    dir = Direction.SOUTH;
-                    isCorrect = true;
-                    break;
-                case "e":
-                    dir = Direction.EAST;
-                    isCorrect = true;
-                    break;
-                case "o":
-                    dir = Direction.WEST;
-                    isCorrect = true;
-                    break;
-                default:
-                    displayError("La direction est incorrect!");
-            }
-        }
-        return dir;
-    }
-
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String[] args) {
-//        Square[][] bd = new Square[][]{
-//            {new Square(GRASS), new Square(GRASS), null},
-//            {null, new Square(GRASS), new Square(GRASS)},
-//            {null, null, new Square(STAR)}
-//        };
-//        Board board = new Board(bd);
-//        Spider sp = new Spider(new Position(0,1));
-//        Snail sn = new Snail(new Position(1,1));
-//        View view = new View();
-//        view.displayBoard(board, sp, sn);
-//        view.askDirection();
-//        view.askPosition();
-//    }
 }

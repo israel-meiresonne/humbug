@@ -17,26 +17,33 @@ public interface InterfaceView {
      * @param board the board to print
      * @param animals animal to display
      */
-    public void displayBoard(Board board, Animal... animals);
+    void displayBoard(Board board, Animal... animals);
 
     /**
      * Ask a position to the user, create and return that position
      *
      * @return position entered by the user
      */
-    public Position askPosition();
+    Position askPosition();
 
     /**
      * Ask a Direction to the user, create and return that Direction
      *
      * @return Direction entered by the user
      */
-    public Direction askDirection();
+    Direction askDirection();
 
     /**
      * displays error message passed in argument
      *
      * @param message a error message to display
      */
-    public void displayError(String message);
+    void displayError(String message);
+    
+    /**
+     * Display the number of moves stilling
+     *
+     * @param remainingMoves the number of movements remaining
+     */
+    public void displayRemainingMoves(int remainingMoves);
 }
