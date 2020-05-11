@@ -10,6 +10,12 @@ public class Level {
     private Animal[] animals;
     private int nMoves;
     
+    /**
+     * Constructor for Level
+     * @param nMoves number of move allowed
+     * @param board the game board of the level
+     * @param animals the animal available for the game
+     */
     private Level(int nMoves, Board board, Animal[] animals){
         this.nMoves = nMoves;
         this.board = board;
