@@ -13,6 +13,13 @@ public class Butterfly extends Animal {
 
     /**
      * Constructor for a Butterfly
+     */
+    public Butterfly() {
+        super();
+    }
+
+    /**
+     * Constructor for a Butterfly
      *
      * @param positionOnBoard the animal's starting position
      */

@@ -1,6 +1,20 @@
 package g53298.humbug.model;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import static g53298.humbug.model.SquareType.*;
+
+@JsonTypeInfo(use = Id.NAME, include = JsonTypeInfo.As.PROPERTY, property
+        = "type")
+@JsonSubTypes({
+    @Type(value = Bumbelbee.class),
+    @Type(value = Grasshopper.class),
+    @Type(value = Ladybird.class),
+    @Type(value = Snail.class),
+    @Type(value = Spider.class),
+    @Type(value = Butterfly.class)})
 
 /**
  * This class includes all the functions and attributes shared by all animals
@@ -14,12 +28,19 @@ public abstract class Animal {
 
     /**
      * Constructor of a animal
+     */
+    public Animal() {
+        onStar = false;
+    }
+
+    /**
+     * Constructor of a animal
      *
      * @param positionOnBoard the animal's starting position
      */
     public Animal(Position positionOnBoard) {
+        this();
         this.positionOnBoard = positionOnBoard;
-        onStar = false;
     }
 
     /**
@@ -144,7 +165,7 @@ public abstract class Animal {
             return isArrived;
         }
         return isArrived; // return false cause a jumper is never arrived 
-                          // till he touch an free square or fall
+        // till he touch an free square or fall
     }
 
     /**
@@ -160,11 +181,11 @@ public abstract class Animal {
             Animal... animals) {
         Position currentPos = this.getPositionOnBoard();
         Position newPos = currentPos.next(direction);;
-        
-        for(int i = 1; i < nbMove; i++){
+
+        for (int i = 1; i < nbMove; i++) {
             newPos = newPos.next(direction);
         }
-        
+
         boolean isInside = board.isInside(newPos);
         boolean isFree = isFree(newPos, animals);
         boolean isArrived = false;
@@ -192,13 +213,14 @@ public abstract class Animal {
             return isArrived;
         }
         return isArrived; // return false cause a flyer is never arrived 
-                          // till he touch an free square or fall
+        // till he touch an free square or fall
     }
 
     /**
-     * Update the animal and the board. set true animal's onStar attribut and 
-     * switch the type of the square where he's to GRASS If the animal is on a 
+     * Update the animal and the board. set true animal's onStar attribut and
+     * switch the type of the square where he's to GRASS If the animal is on a
      * start else set onStar to false
+     *
      * @param board the game board
      */
     protected void landing(Board board) {

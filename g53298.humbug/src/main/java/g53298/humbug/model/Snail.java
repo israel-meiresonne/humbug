@@ -10,6 +10,13 @@ import static g53298.humbug.view.text.TerminalColor.*;
 public class Snail extends Animal {
 
     /**
+     * Constructor for a Snail
+     */
+    public Snail() {
+        super();
+    }
+
+    /**
      * Constructor for a Snails
      *
      * @param positionOnBoard the animal's starting position

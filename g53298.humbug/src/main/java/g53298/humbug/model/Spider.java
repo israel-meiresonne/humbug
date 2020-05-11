@@ -11,6 +11,13 @@ public class Spider extends Animal {
 
     /**
      * Constructor for a Spider
+     */
+    public Spider() {
+        super();
+    }
+
+    /**
+     * Constructor for a Spider
      *
      * @param positionOnBoard the animal's starting position
      */

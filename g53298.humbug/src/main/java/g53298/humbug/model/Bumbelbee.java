@@ -1,6 +1,5 @@
 package g53298.humbug.model;
 
-
 import static g53298.humbug.view.text.TerminalColor.*;
 
 /**
@@ -11,6 +10,13 @@ import static g53298.humbug.view.text.TerminalColor.*;
 public class Bumbelbee extends Animal {
 
     private final int NB_MOVE = 2;
+
+    /**
+     * Constructor for a Bumbelbee
+     */
+    public Bumbelbee() {
+        super();
+    }
 
     /**
      * Constructor for a Bumbelbee

@@ -11,6 +11,13 @@ public class Grasshopper extends Animal {
 
     /**
      * Constructor for a Grasshopper
+     */
+    public Grasshopper() {
+        super();
+    }
+
+    /**
+     * Constructor for a Grasshopper
      *
      * @param positionOnBoard the animal's starting position
      */
@@ -31,8 +38,8 @@ public class Grasshopper extends Animal {
     @Override
     public Position move(Board board, Direction direction,
             Animal... animals) {
-            moveOneJumping(board, direction, animals);
-            landing(board);
+        moveOneJumping(board, direction, animals);
+        landing(board);
         return this.getPositionOnBoard();
     }
 
