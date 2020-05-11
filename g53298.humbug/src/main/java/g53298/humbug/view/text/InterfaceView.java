@@ -49,12 +49,12 @@ public interface InterfaceView {
     public void displayRemainingMoves(int remainingMoves);
 
     /**
-     * Ask a number to the user
+     * Ask a level to the user
      *
      * @param msg the request message
      * @param erMsg the error message displayed when the entered value is
      * incorrect
      * @return a number
      */
-    public int askInt(String msg, String erMsg);
+    public int askLevel(String msg, String erMsg);
 }

@@ -1,5 +1,6 @@
 package g53298.humbug.controller;
 
+import g53298.humbug.model.Level;
 import g53298.humbug.model.Model;
 import g53298.humbug.model.Position;
 import g53298.humbug.view.text.InterfaceView;
@@ -33,7 +34,7 @@ public class Controller {
      * Start and manage a game
      */
     public void startGame() {
-        int level = view.askInt("Choisis un niveau", "Ce niveau n'est pas "
+        int level = view.askLevel("Choisis un niveau", "Ce niveau n'est pas "
                 + "disponible!");
         game.startLevel(level);
 
@@ -45,14 +46,14 @@ public class Controller {
             System.out.println();
             view.displayRemainingMoves(game.getRemainingMoves());
             view.displayBoard(game.getBoard(), game.getAnimals());
-            
+
             Position position = view.askPosition();
             if (game.isAnimalOn(position)) {
                 game.move(position, view.askDirection());
             } else {
                 view.displayError("Il n'y a pas d'animal à cette position!");
             }
-            updateWinLose(level);
+            isOver = isOver(level);
         }
         view.displayBoard(game.getBoard(), game.getAnimals());
         System.out.println("La partie est terminée!");
@@ -80,8 +81,10 @@ public class Controller {
      * Update attributs isWin and isLose
      *
      * @param level game's current level
+     * @return true if there is another level playable else false
      */
-    private void updateWinLose(int level) {
+    private boolean isOver(int level) {
+        boolean isOver = false;
         switch (game.getLevelStatus()) {
             case FAIL:
                 view.displayError("Désolé, vous avez perdu, le niveau est "
@@ -92,10 +95,13 @@ public class Controller {
                 System.out.println("Félicitation, tu as réussi le niveau "
                         + level + "!");
                 this.isWin = true;
-//                    isOver = Level.MaxLevel; // test si il reste des niveau 
-                // jouable
+                isOver = !Level.levelExist(level+1);
+                if(isOver){
+                    System.out.println("Bravo! Tu as finis tous les niveaux!");
+                }
                 break;
         }
+        return isOver;
     }
 
 }

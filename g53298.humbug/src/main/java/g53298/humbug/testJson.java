@@ -17,6 +17,7 @@ public class testJson {
         ObjectMapper mapper = new ObjectMapper();
         File file = new File(System.getProperty("user.dir")+"/src/main/resources/data/position.json");
         JsonNode jsonNode = mapper.readTree(file);
+        System.out.println("file exist: " + file.exists());
         System.out.println(jsonNode);
                 
         Position position = mapper.readValue(file, Position.class);

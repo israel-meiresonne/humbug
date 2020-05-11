@@ -71,8 +71,7 @@ public class Level {
     static Level readLevel(int n) {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            File file = new File(System.getProperty("user.dir")
-                    + "/src/main/resources/data/level-" + n + ".json");
+            File file = new File(System.getProperty("user.dir") + getLevelDir(n));
 
             Level level = mapper.readValue(file, Level.class);
             return level;
@@ -80,6 +79,26 @@ public class Level {
             System.err.println(e.getMessage());
         }
         return null;
+    }
+
+    /**
+     * Check if the file for the level given in param exist
+     * @param n the number of the level
+     * @return true if file for the level given in param exist else false
+     */
+    public static boolean levelExist(int n) {
+        File file = new File(System.getProperty("user.dir") + getLevelDir(n));
+        return file.exists();
+    }
+
+    /**
+     * To get the directory where level are stored
+     *
+     * @param n the number of the level
+     * @return the directory where level are stored
+     */
+    private static String getLevelDir(int n) {
+        return ("/src/main/resources/level/level-" + n + ".json");
     }
 
 }

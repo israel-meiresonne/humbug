@@ -3,6 +3,7 @@ package g53298.humbug.view.text;
 import g53298.humbug.model.Animal;
 import g53298.humbug.model.Board;
 import g53298.humbug.model.Direction;
+import g53298.humbug.model.Level;
 import g53298.humbug.model.Position;
 import static g53298.humbug.model.SquareType.GRASS;
 import static g53298.humbug.model.SquareType.STAR;
@@ -78,25 +79,23 @@ public class View implements InterfaceView {
     }
 
     /**
-     * Ask a number to the user
+     * Ask a level to the user
      *
      * @param msg the request message
      * @param erMsg the error message displayed when the entered value is
      * incorrect
      * @return a number
      */
-    public int askInt(String msg, String erMsg) {
-        boolean isCorrect = false;
-        while (!isCorrect) {
-            System.out.println(msg);
-            String nbStr = in.nextLine();
-            if (nbStr.matches("[0-9]+")) {
-                return Integer.parseInt(nbStr);
-            } else {
-                displayError(erMsg);
-            }
+    public int askLevel(String msg, String erMsg) {
+        boolean levelExist = false;
+        int level = askInt(msg);
+        levelExist = Level.levelExist(level);
+        while (!levelExist) {
+            displayError(erMsg);
+            level = askInt(msg);
+            levelExist = Level.levelExist(level);
         }
-        throw new IllegalStateException("Can't extract the number!");
+        return level;
     }
 
     /**
@@ -234,5 +233,27 @@ public class View implements InterfaceView {
             }
             System.out.println();
         }
+    }
+
+    /**
+     * Ask a number to the user
+     *
+     * @param msg the request message
+     * @param erMsg the error message displayed when the entered value is
+     * incorrect
+     * @return a number
+     */
+    private int askInt(String msg) {
+        boolean isCorrect = false;
+        while (!isCorrect) {
+            System.out.println(msg);
+            String nbStr = in.nextLine();
+            if (nbStr.matches("[0-9]+")) {
+                return Integer.parseInt(nbStr);
+            } else {
+                displayError("Cette valeur n'est pas correcte!");
+            }
+        }
+        throw new IllegalStateException("Can't extract the number!");
     }
 }
