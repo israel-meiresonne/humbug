@@ -20,6 +20,12 @@ public interface Model {
      * @return original animals
      */
     Animal[] getAnimals();
+    
+    /**
+     * Getter for the number of movements remaining
+     * @return the number of movements remaining
+     */
+    int getRemainingMoves();
 
     /**
      * This method initialize the board with the level given in param
@@ -27,13 +33,12 @@ public interface Model {
      * @param level the level to load
      */
     void startLevel(int level);
-
+    
     /**
-     * Check if the level is end by checking if all animal is on a star square
-     *
-     * @return true if the level is end else false
+     * Getter for level's status
+     * @return level's status
      */
-    boolean levelIsOver();
+    LevelStatus getLevelStatus();
 
     /**
      * Move the animal in the position given in param to the direction also
