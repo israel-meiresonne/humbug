@@ -30,9 +30,9 @@ public interface Model {
     /**
      * This method initialize the board with the level given in param
      *
-     * @param level the level to load
+     * @param nLevel the level to load
      */
-    void startLevel(int level);
+    void startLevel(int nLevel);
     
     /**
      * Getter for level's status

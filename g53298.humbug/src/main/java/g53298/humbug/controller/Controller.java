@@ -29,7 +29,9 @@ public class Controller {
      * Start and manage a game
      */
     public void startGame() {
-        game.startLevel(1);
+        int level = view.askInt("Choisis un niveau", "Ce niveau n'est pas "
+                + "disponible!");
+        game.startLevel(level);
         boolean isOver = false;
         while (!isOver) {
             view.displayBoard(game.getBoard(), game.getAnimals());

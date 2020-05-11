@@ -7,6 +7,7 @@ import g53298.humbug.model.Position;
 
 /**
  * List all the functions available in the View class
+ *
  * @author israelmeiresonne
  */
 public interface InterfaceView {
@@ -39,11 +40,21 @@ public interface InterfaceView {
      * @param message a error message to display
      */
     void displayError(String message);
-    
+
     /**
      * Display the number of moves stilling
      *
      * @param remainingMoves the number of movements remaining
      */
     public void displayRemainingMoves(int remainingMoves);
+
+    /**
+     * Ask a number to the user
+     *
+     * @param msg the request message
+     * @param erMsg the error message displayed when the entered value is
+     * incorrect
+     * @return a number
+     */
+    public int askInt(String msg, String erMsg);
 }

@@ -78,6 +78,28 @@ public class View implements InterfaceView {
     }
 
     /**
+     * Ask a number to the user
+     *
+     * @param msg the request message
+     * @param erMsg the error message displayed when the entered value is
+     * incorrect
+     * @return a number
+     */
+    public int askInt(String msg, String erMsg) {
+        boolean isCorrect = false;
+        while (!isCorrect) {
+            System.out.println(msg);
+            String nbStr = in.nextLine();
+            if (nbStr.matches("[0-9]+")) {
+                return Integer.parseInt(nbStr);
+            } else {
+                displayError(erMsg);
+            }
+        }
+        throw new IllegalStateException("Can't extract the number!");
+    }
+
+    /**
      * Ask a Direction to the user, create and return that Direction
      *
      * @return Direction entered by the user

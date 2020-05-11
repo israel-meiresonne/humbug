@@ -70,10 +70,10 @@ public class Game implements Model {
     /**
      * This method initialize the board with the level given in param
      *
-     * @param level the level to load
+     * @param nLevel the level to load
      */
-    public void startLevel(int level) {
-        currentLevel = level;
+    public void startLevel(int nLevel) {
+        currentLevel = nLevel;
         levelStatus = IN_PROGRESS;
         remainingMoves = 5;
         animals = new Animal[1];
