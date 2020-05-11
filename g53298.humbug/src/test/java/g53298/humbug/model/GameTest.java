@@ -37,7 +37,6 @@ public class GameTest {
         int level = 1;
         Game instance = new Game();
         instance.startLevel(level);
-        assertTrue(instance.getCurrentLevel() == level);
         assertTrue(instance.getLevelStatus() == IN_PROGRESS);
     }
 }
