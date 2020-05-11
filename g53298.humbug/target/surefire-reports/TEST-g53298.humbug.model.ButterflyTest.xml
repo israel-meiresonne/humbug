@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="g53298.humbug.model.ButterflyTest" time="0.024" tests="9" errors="9" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="g53298.humbug.model.ButterflyTest" time="0.025" tests="9" errors="9" skipped="0" failures="0">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -7,7 +7,7 @@
     <property name="java.specification.version" value="1.8"/>
     <property name="sun.cpu.isalist" value=""/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/g53298.humbug/target/test-classes:/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/g53298.humbug/target/classes:/Users/israelmeiresonne/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.1/junit-jupiter-api-5.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/Users/israelmeiresonne/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/platform/junit-platform-commons/1.3.1/junit-platform-commons-1.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.3.1/junit-jupiter-params-5.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.1/junit-jupiter-engine-5.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/platform/junit-platform-engine/1.3.1/junit-platform-engine-1.3.1.jar:"/>
+    <property name="java.class.path" value="/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/p-53298/g53298.humbug/target/test-classes:/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/p-53298/g53298.humbug/target/classes:/Users/israelmeiresonne/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.1/junit-jupiter-api-5.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/Users/israelmeiresonne/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/platform/junit-platform-commons/1.3.1/junit-platform-commons-1.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.3.1/junit-jupiter-params-5.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.1/junit-jupiter-engine-5.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/platform/junit-platform-engine/1.3.1/junit-platform-engine-1.3.1.jar:"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
@@ -17,22 +17,22 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="BE"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib"/>
-    <property name="sun.java.command" value="/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/g53298.humbug/target/surefire/surefirebooter2682877376033245592.jar /Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/g53298.humbug/target/surefire 2020-05-10T21-16-47_716-jvmRun1 surefire7261411474243982756tmp surefire_08839950509279966842tmp"/>
+    <property name="sun.java.command" value="/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/p-53298/g53298.humbug/target/surefire/surefirebooter3219920393486479362.jar /Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/p-53298/g53298.humbug/target/surefire 2020-05-10T23-51-29_668-jvmRun1 surefire2319100582506679940tmp surefire_07964687800357690605tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="test" value="g53298.humbug.model.ButterflyTest"/>
-    <property name="surefire.test.class.path" value="/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/g53298.humbug/target/test-classes:/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/g53298.humbug/target/classes:/Users/israelmeiresonne/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.1/junit-jupiter-api-5.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/Users/israelmeiresonne/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/platform/junit-platform-commons/1.3.1/junit-platform-commons-1.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.3.1/junit-jupiter-params-5.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.1/junit-jupiter-engine-5.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/platform/junit-platform-engine/1.3.1/junit-platform-engine-1.3.1.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/p-53298/g53298.humbug/target/test-classes:/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/p-53298/g53298.humbug/target/classes:/Users/israelmeiresonne/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.1/junit-jupiter-api-5.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/Users/israelmeiresonne/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/platform/junit-platform-commons/1.3.1/junit-platform-commons-1.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.3.1/junit-jupiter-params-5.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.1/junit-jupiter-engine-5.3.1.jar:/Users/israelmeiresonne/.m2/repository/org/junit/platform/junit-platform-engine/1.3.1/junit-platform-engine-1.3.1.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/israelmeiresonne"/>
     <property name="user.language" value="fr"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre"/>
-    <property name="basedir" value="/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/g53298.humbug"/>
+    <property name="basedir" value="/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/p-53298/g53298.humbug"/>
     <property name="file.separator" value="/"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/g53298.humbug/target/surefire/surefirebooter2682877376033245592.jar"/>
+    <property name="surefire.real.class.path" value="/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/p-53298/g53298.humbug/target/surefire/surefirebooter3219920393486479362.jar"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
@@ -49,7 +49,7 @@
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="java.io.tmpdir" value="/var/folders/x0/xl1k4nbs0550z4_mxfb_6pc80000gn/T/"/>
     <property name="java.version" value="1.8.0_181"/>
-    <property name="user.dir" value="/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/g53298.humbug"/>
+    <property name="user.dir" value="/Users/israelmeiresonne/Library/Mobile Documents/com~apple~CloudDocs/Documents/ESI/QUADRI 2/DEV2/JAVL2/projet humbug/projet/p-53298/g53298.humbug"/>
     <property name="os.arch" value="x86_64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
@@ -63,32 +63,32 @@
     <property name="java.class.version" value="52.0"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="testMove_landingOnAnimal" classname="g53298.humbug.model.ButterflyTest" time="0.006">
+  <testcase name="testMove_landingOnAnimal" classname="g53298.humbug.model.ButterflyTest" time="0.007">
     <error type="java.lang.NoSuchMethodError"><![CDATA[java.lang.NoSuchMethodError: g53298.humbug.model.Butterfly.<init>(Lg53298/humbug/model/Position;)V
 	at g53298.humbug.model.ButterflyTest.setUp(ButterflyTest.java:26)
 ]]></error>
   </testcase>
-  <testcase name="testMove_flyUpTwoEmptySquare" classname="g53298.humbug.model.ButterflyTest" time="0.001">
+  <testcase name="testMove_flyUpTwoEmptySquare" classname="g53298.humbug.model.ButterflyTest" time="0">
     <error type="java.lang.NoSuchMethodError"><![CDATA[java.lang.NoSuchMethodError: g53298.humbug.model.Butterfly.<init>(Lg53298/humbug/model/Position;)V
 	at g53298.humbug.model.ButterflyTest.setUp(ButterflyTest.java:26)
 ]]></error>
   </testcase>
-  <testcase name="testMove" classname="g53298.humbug.model.ButterflyTest" time="0">
+  <testcase name="testMove" classname="g53298.humbug.model.ButterflyTest" time="0.001">
     <error type="java.lang.NoSuchMethodError"><![CDATA[java.lang.NoSuchMethodError: g53298.humbug.model.Butterfly.<init>(Lg53298/humbug/model/Position;)V
 	at g53298.humbug.model.ButterflyTest.setUp(ButterflyTest.java:26)
 ]]></error>
   </testcase>
-  <testcase name="testMove_nextOnStar" classname="g53298.humbug.model.ButterflyTest" time="0.001">
+  <testcase name="testMove_nextOnStar" classname="g53298.humbug.model.ButterflyTest" time="0">
     <error type="java.lang.NoSuchMethodError"><![CDATA[java.lang.NoSuchMethodError: g53298.humbug.model.Butterfly.<init>(Lg53298/humbug/model/Position;)V
 	at g53298.humbug.model.ButterflyTest.setUp(ButterflyTest.java:26)
 ]]></error>
   </testcase>
-  <testcase name="testMove_jumpUpWall" classname="g53298.humbug.model.ButterflyTest" time="0.001">
+  <testcase name="testMove_jumpUpWall" classname="g53298.humbug.model.ButterflyTest" time="0">
     <error type="java.lang.NoSuchMethodError"><![CDATA[java.lang.NoSuchMethodError: g53298.humbug.model.Butterfly.<init>(Lg53298/humbug/model/Position;)V
 	at g53298.humbug.model.ButterflyTest.setUp(ButterflyTest.java:26)
 ]]></error>
   </testcase>
-  <testcase name="testMove_endline" classname="g53298.humbug.model.ButterflyTest" time="0.001">
+  <testcase name="testMove_endline" classname="g53298.humbug.model.ButterflyTest" time="0">
     <error type="java.lang.NoSuchMethodError"><![CDATA[java.lang.NoSuchMethodError: g53298.humbug.model.Butterfly.<init>(Lg53298/humbug/model/Position;)V
 	at g53298.humbug.model.ButterflyTest.setUp(ButterflyTest.java:26)
 ]]></error>
@@ -103,7 +103,7 @@
 	at g53298.humbug.model.ButterflyTest.setUp(ButterflyTest.java:26)
 ]]></error>
   </testcase>
-  <testcase name="testMove_next_notfree" classname="g53298.humbug.model.ButterflyTest" time="0">
+  <testcase name="testMove_next_notfree" classname="g53298.humbug.model.ButterflyTest" time="0.001">
     <error type="java.lang.NoSuchMethodError"><![CDATA[java.lang.NoSuchMethodError: g53298.humbug.model.Butterfly.<init>(Lg53298/humbug/model/Position;)V
 	at g53298.humbug.model.ButterflyTest.setUp(ButterflyTest.java:26)
 ]]></error>
