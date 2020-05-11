@@ -50,6 +50,24 @@ public class Game implements Model {
     }
 
     /**
+     * Getter for game's level
+     *
+     * @return game's level
+     */
+    public int getCurrentLevel() {
+        return currentLevel;
+    }
+
+    /**
+     * Getter for level's status
+     *
+     * @return level's status
+     */
+    public LevelStatus getLevelStatus() {
+        return levelStatus;
+    }
+
+    /**
      * This method initialize the board with the level given in param
      *
      * @param level the level to load
@@ -57,6 +75,7 @@ public class Game implements Model {
     public void startLevel(int level) {
         currentLevel = level;
         levelStatus = IN_PROGRESS;
+        remainingMoves = 5;
         animals = new Animal[1];
         animals[0] = new Snail(new Position(0, 0));
         board = Board.getInitialBoard();
@@ -81,15 +100,6 @@ public class Game implements Model {
 //        }
 //        return isOver;
 //    }
-    /**
-     * Getter for level's status
-     *
-     * @return level's status
-     */
-    public LevelStatus getLevelStatus() {
-        return levelStatus;
-    }
-
     /**
      * Move the animal in the position given in param to the direction also
      * given in param
@@ -151,7 +161,7 @@ public class Game implements Model {
             levelStatus = WIN;
         } else if (!canMove()) {
             levelStatus = FAIL;
-        } 
+        }
     }
 
     /**
