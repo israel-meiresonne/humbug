@@ -75,7 +75,7 @@ public class Game implements Model {
     public void startLevel(int nLevel) {
         currentLevel = nLevel;
         levelStatus = IN_PROGRESS;
-        remainingMoves = 5;
+        remainingMoves = 4;
         animals = new Animal[1];
         animals[0] = new Snail(new Position(0, 0));
         board = Board.getInitialBoard();
@@ -136,6 +136,7 @@ public class Game implements Model {
     /**
      * Check if there is an animal on the position given in param
      *
+     * @param position position to check
      * @return true if there is an animal on the position given in param else
      * false
      */
