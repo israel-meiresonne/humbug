@@ -51,6 +51,15 @@ public class View implements InterfaceView {
     public void displayError(String message) {
         System.out.println(RED + message);
     }
+    
+    /**
+     * displays error message passed in argument
+     *
+     * @param message a error message to display
+     */
+    public void displaySuccess(String message) {
+        System.out.println(BLUE + message);
+    }
 
     /**
      * Ask a position to the user, create and return that position

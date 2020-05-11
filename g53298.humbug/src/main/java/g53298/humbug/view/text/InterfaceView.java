@@ -39,6 +39,13 @@ public interface InterfaceView {
      *
      * @param message a error message to display
      */
+    public void displaySuccess(String message);
+
+    /**
+     * displays error message passed in argument
+     *
+     * @param message a error message to display
+     */
     void displayError(String message);
 
     /**

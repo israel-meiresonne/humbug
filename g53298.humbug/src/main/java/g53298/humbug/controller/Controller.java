@@ -92,12 +92,12 @@ public class Controller {
                 this.isLose = true;
                 break;
             case WIN:
-                System.out.println("Félicitation, tu as réussi le niveau "
+                view.displaySuccess("Félicitation, tu as réussi le niveau "
                         + level + "!");
                 this.isWin = true;
                 isOver = !Level.levelExist(level+1);
                 if(isOver){
-                    System.out.println("Bravo! Tu as finis tous les niveaux!");
+                    view.displaySuccess("Tous les niveaux sont fini!");
                 }
                 break;
         }
