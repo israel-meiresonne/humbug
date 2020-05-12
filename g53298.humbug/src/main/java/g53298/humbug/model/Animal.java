@@ -243,8 +243,11 @@ public abstract class Animal {
     private boolean isFree(Position position, Animal... animals) {
         boolean isFree = true;
         for (Animal animal : animals) {
-            isFree = isFree ? !position.equals(animal.getPositionOnBoard())
-                    : isFree;
+            Boolean posMatch = position.equals(animal.getPositionOnBoard());
+            if (isFree && posMatch && !animal.isOnStar()) {
+                isFree = false;
+                break;
+            }
         }
         return isFree;
     }
