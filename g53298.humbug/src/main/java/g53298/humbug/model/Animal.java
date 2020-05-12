@@ -149,7 +149,7 @@ public abstract class Animal {
         boolean isInside = board.isInside(newPos);
         boolean isFree = isFree(newPos, animals);
         boolean isArrived = false;
-
+        
         if (isInside && isFree) {
             this.setPositionOnBoard(newPos);
             return isArrived;

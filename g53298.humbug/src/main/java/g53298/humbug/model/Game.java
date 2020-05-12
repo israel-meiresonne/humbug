@@ -93,10 +93,11 @@ public class Game implements Model {
         int nbAnim = animals.length;
         int i = 0;
         while ((i < nbAnim) && !found) {
-            found = animals[i].getPositionOnBoard().equals(position);
+            found = (animals[i].getPositionOnBoard().equals(position)
+                    && (!animals[i].isOnStar()));
             if (found) {
                 Position newPos = animals[i].move(board, direction, animals);
-                if (!newPos.equals(position)) {
+                if ((newPos != null) && (!newPos.equals(position))) {
                     remainingMoves--;
                 }
             }
