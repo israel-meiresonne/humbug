@@ -15,7 +15,7 @@ public class LevelTest {
     @Test
     public void testReadLevel() {
         System.out.println("build a Level");
-        int n = 1;
+        int n = 2;
         Level level = Level.readLevel(n);
         assertTrue(level != null);
     }

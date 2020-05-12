@@ -18,6 +18,10 @@ public class Square {
      * Constructor of Square on board.
      */
     public Square() {
+        this.northWall = false;
+        this.southWall = false;
+        this.westWall = false;
+        this.eastWall = false;
     }
 
     /**
@@ -28,10 +32,6 @@ public class Square {
     public Square(SquareType type) {
         this();
         this.type = type;
-        this.northWall = false;
-        this.southWall = false;
-        this.westWall = false;
-        this.eastWall = false;
     }
 
     /**
@@ -46,28 +46,28 @@ public class Square {
     /**
      * Getter for the North Wall
      */
-    public boolean isNorthWall() {
+    public boolean getNorthWall() {
         return northWall;
     }
 
     /**
-    * Getter for the South Wall
-    */
-    public boolean isSouthWall() {
+     * Getter for the South Wall
+     */
+    public boolean getSouthWall() {
         return southWall;
     }
 
     /**
-    * Getter for the West Wall
-    */
-    public boolean isWestWall() {
+     * Getter for the West Wall
+     */
+    public boolean getWestWall() {
         return westWall;
     }
 
     /**
-    * Getter for the East Wall
-    */
-    public boolean isEastWall() {
+     * Getter for the East Wall
+     */
+    public boolean getEastWall() {
         return eastWall;
     }
 
