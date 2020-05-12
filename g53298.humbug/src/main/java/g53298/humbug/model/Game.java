@@ -69,7 +69,7 @@ public class Game implements Model {
         animals = level.getAnimals();
         board = level.getBoard();
     }
-    
+
     /**
      * Move the animal in the position given in param to the direction also
      * given in param
@@ -95,11 +95,13 @@ public class Game implements Model {
         while ((i < nbAnim) && !found) {
             found = animals[i].getPositionOnBoard().equals(position);
             if (found) {
-                animals[i].move(board, direction, animals);
+                Position newPos = animals[i].move(board, direction, animals);
+                if (!newPos.equals(position)) {
+                    remainingMoves--;
+                }
             }
             i++;
         }
-        remainingMoves--;
         updateStatus();
     }
 

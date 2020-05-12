@@ -200,14 +200,6 @@ public abstract class Animal {
             return isArrived;
         }
         if (!isInside) {
-//            boolean inArray = (newPos.getRow() < board.getNbRow())
-//                    && (newPos.getColumn() < board.getNbColumn())
-//                    && (newPos.getRow() >= 0)
-//                    && (newPos.getColumn() >= 0);
-//            if (inArray) {
-//                isArrived = this.moveOneFlying(board, direction, animals);
-//                return isArrived;
-//            }
             this.setPositionOnBoard(null);
             isArrived = true;
             return isArrived;
