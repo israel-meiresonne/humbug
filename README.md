@@ -7,12 +7,12 @@ Project Topics (tags):
 -->
 
 This application is a clone of the Humbug game from studio [Dunderbit](https://www.dunderbit.com).
-It respect the MVC architecture and the SOLID principle.
+It respects the MVC architecture and the SOLID principle.
 
 ## Features
 
-* Use command line to interact with the game
-* Level are stored in Json files in `g53298.humbug/src/main/resources/level`
+* Use the command line to interact with the game
+* Levels are stored in JSON files in `g53298.humbug/src/main/resources/level`
 
 ## Technologies
 
