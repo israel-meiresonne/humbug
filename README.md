@@ -7,7 +7,7 @@ Project Topics (tags):
 -->
 
 This application is a clone of the Humbug game from studio [Dunderbit](https://www.dunderbit.com).
-It respects the MVC architecture and the SOLID principle.
+It respects the MVC architecture and the SOLID principles.
 
 ## Features
 
